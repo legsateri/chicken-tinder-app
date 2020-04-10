@@ -9,27 +9,20 @@ class SignupForm extends Component {
         return (
             <>
                 <form className="signup_form">
-                    <div>
-                        <label htmlFor="first-name">First Name</label>
-                        <input placeholder="First Name" type="text" name="first-name" id="first-name" />
+                    <div className="flex">
+                        <input placeholder=" FIRST NAME" type="text" name="first_name" id="first_name" className="input_field" />
+                        <br />
+                        <input placeholder=" LAST NAME" type="text" name="last_name-name" id="last_name" className="input_field" />
+                        <br />
                     </div>
 
-                    <div>
-                        <label htmlFor="last-name">Last Name</label>
-                        <input placeholder="Last Name" type="text" name="last-name" id="last-name" />
-                    </div>
+                    <input placeholder=" EMAIL" type="text" name="email" id="email" className="input_field" />
+                    <br />
 
-                    <div>
-                        <label htmlFor="signupEmail">Email</label>
-                        <input type="text" name="signupEmail" id="signupEmail" />
-                    </div>
+                    <input placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
+                    <br />
 
-                    <div>
-                        <label htmlFor="signupPassword">Password</label>
-                        <input type="signupPassword" name="signupPassword" id="signupPassword" />
-                    </div>
-
-                    <button type="submit">Login</button>
+                    <button type="submit" className="submit_button">SIGN UP</button>
                 </form>
             </>
         )

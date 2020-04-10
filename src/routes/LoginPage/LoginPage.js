@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
+import './LoginPage.css';
+////////////////////////////////////////////////////////////////////////////////
 
 class LoginPage extends Component {
     constructor () {
@@ -39,7 +41,7 @@ class LoginPage extends Component {
             <>
                 <main>
                     <header>
-                        <h1>TBD</h1>
+                        <h1>Start Eating</h1>
 
                         <form className="radio_form">
                             <div className="radio login_radio">

@@ -9,17 +9,13 @@ class LoginForm extends Component {
         return (
             <>
                 <form className="login_form">
-                    <div>
-                        <label htmlFor="loginEmail">Email</label>
-                        <input type="text" name="loginEmail" id="loginEmail" />
-                    </div>
+                    <input placeholder=" EMAIL" type="text" name="email" id="email" className="input_field" />
+                    <br />
 
-                    <div>
-                        <label htmlFor="loginPassword">Password</label>
-                        <input type="loginPassword" name="loginPassword" id="loginPassword" />
-                    </div>
-
-                    <button type="submit">Login</button>
+                    <input  placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
+                    <br />
+                    
+                    <button type="submit" className="submit_button">LOGIN</button>
                 </form>
             </>
         )

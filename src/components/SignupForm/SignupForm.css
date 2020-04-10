@@ -1,3 +1,12 @@
-label {
-    display: block;
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+#first_name, #last_name {
+    width: 145px;
+}
+
+#first_name {
+    margin-right: 10px;
 }
