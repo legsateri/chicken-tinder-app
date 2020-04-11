@@ -5,12 +5,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(190deg, white 50%, #D3D3D3 50%);
   background-repeat: no-repeat;
+  background-color: #D3D3D3;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-html {
-  height: 100%;
 }

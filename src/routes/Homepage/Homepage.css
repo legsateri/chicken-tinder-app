@@ -1,7 +1,50 @@
-.header {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+@media only screen and (min-width: 200px) {
+    .header {
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #homepage_start_button {
+        margin-bottom: 100px;
+    }
+    #placeholder_box {
+        background-color: white;
+        border: 2px solid darkgray;
+        height: 300px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #info_screen {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #homepage_flex {
+        text-align: center;
+    }
 }
+
+@media only screen and (min-width: 975px) {
+    #placeholder_box {
+        margin-left: 50px;
+        margin-right: 30px;
+    }
+    #homepage_flex {
+        display: flex;
+        height: 300px;
+        width: 600px;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #info_screen {
+        width: 600px;
+        text-align: left;
+    }
+}
+
+/* Current layout is perfect for 975+ is full screen size for my laptop */
