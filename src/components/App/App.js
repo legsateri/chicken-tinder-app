@@ -6,6 +6,7 @@ import Navigation from '../Navigation/Navigation';
 ////////////////////////////////////////////////////////////////////////////////
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
@@ -27,6 +28,11 @@ class App extends Component {
             <Route
               path={"/login"}
               component={LoginPage}
+            />
+
+            <Route
+              path={"/start-group"}
+              component={StartGroupPage}
             />
           </Switch>
         </main>

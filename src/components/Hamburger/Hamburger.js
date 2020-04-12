@@ -9,7 +9,7 @@ export default props => {
         <Menu {...props}>
             <Link to="/"><p>Home</p></Link>
             <p>My Groups</p>
-            <p>Start Group</p>
+            <Link to="/start-group"><p>Start Group</p></Link>
             <p>Chant</p>
             <p>Chef Mode</p>
             <p>Account</p>
