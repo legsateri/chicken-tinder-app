@@ -22,6 +22,9 @@ class SignupForm extends Component {
                     <input placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
                     <br />
 
+                    <input placeholder=" CONFIRM PASSWORD" type="password" name="password" id="password" className="input_field" />
+                    <br />
+
                     <button type="submit" className="submit_button">SIGN UP</button>
                 </form>
             </>
