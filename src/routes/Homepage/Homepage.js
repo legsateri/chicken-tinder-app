@@ -9,7 +9,7 @@ class Homepage extends Component {
     render() {
         return (
             <>
-                <main>
+                <main id="page_wrap">
                     <header className="header">
                         <h1>Homepage Headline</h1>
                         <p>Cupcake ipsum dolor sit amet bear claw sweet roll marshmallow. Wafer halvah chupa chups chocolate cake icing powder topping cake. Cookie dessert jelly.</p>

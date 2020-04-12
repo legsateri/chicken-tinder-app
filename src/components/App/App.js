@@ -11,26 +11,26 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 class App extends Component {
   render() {
     return (
-      <>
+      <body id="App">
         <header className="app">
           <Navigation />
         </header>
 
-        <main>
+        <main id="page_wrap">
           <Switch>
-            <Route 
+            <Route
               exact
               path={"/"}
               component={Homepage}
             />
 
-            <Route 
+            <Route
               path={"/login"}
               component={LoginPage}
             />
           </Switch>
         </main>
-      </>
+      </body>
     )
   }
 }

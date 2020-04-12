@@ -39,7 +39,7 @@ class LoginPage extends Component {
 
         return (
             <>
-                <main>
+                <main id="page_wrap">
                     <header>
                         <h1>Start Eating</h1>
 
