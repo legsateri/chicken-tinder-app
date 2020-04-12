@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import './Homepage.css';
+import { findAllByAltText } from '@testing-library/react';
 ////////////////////////////////////////////////////////////////////////////////
 
 class Homepage extends Component {
@@ -11,15 +12,15 @@ class Homepage extends Component {
             <>
                 <main id="page_wrap">
                     <header className="header">
-                        <h1>Homepage Headline</h1>
-                        <p>Cupcake ipsum dolor sit amet bear claw sweet roll marshmallow. Wafer halvah chupa chups chocolate cake icing powder topping cake. Cookie dessert jelly.</p>
+                        <h1>Food You Love</h1>
+                        <p>Welcome Chicken Tinder, a first-of-its-kind restaurant dating app. Invite friends to give a "yup" or "meh" while deciding what's for dinner.</p>
 
                         <Link to='/login' ><button type="submit" className="submit_button" id="homepage_start_button">GET STARTED</button></Link>
                     </header>
 
                     <div id="homepage_flex">
                         <div id="placeholder_box"></div>
-                        <p id="info_screen">Cupcake ipsum dolor sit amet. Cookie carrot cake pie cake pudding chocolate bar. Cake muffin I love soufflé jelly beans liquorice donut chocolate cake halvah.  Candy canes cheesecake marshmallow I love bear claw. Pudding marshmallow sweet roll liquorice.</p>
+                        <p id="info_screen">Using Chicken Tinder is easy. All you have to do is create a group and explore local restaurants. Or, you can utilize your mad chef skills and find something to cook at home. We have it all.</p>
                         <Link to='/login' ><button type="submit" className="submit_button" id="flex_button">GET STARTED</button></Link>
                     </div>
                 </main>

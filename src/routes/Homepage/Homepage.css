@@ -46,6 +46,7 @@
         flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
+        text-align: left;
     }
     #info_screen {
         width: 600px;
