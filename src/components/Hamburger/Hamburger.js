@@ -6,7 +6,7 @@ import { slide as Menu } from 'react-burger-menu';
 
 export default props => {
     return (
-        <Menu {...props}>
+        <Menu isOpen={true} {...props}>
             <Link to="/"><p>Home</p></Link>
             <p>My Groups</p>
             <Link to="/start-group"><p>Start Group</p></Link>

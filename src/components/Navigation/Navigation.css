@@ -13,7 +13,6 @@
 .right_justify {
     text-align: right;
     display: flex;
-    padding-right: 20px;
 }
 
 .left_justify {
@@ -49,7 +48,7 @@
     position: fixed;
     width: 25px;
     height: 25px;
-    right: 36px;
+    right: 20px;
     top: 13px;
 }
 
@@ -81,5 +80,5 @@
 }
 
 .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: #b8b7ad;
 }
