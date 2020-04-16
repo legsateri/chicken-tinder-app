@@ -8,8 +8,12 @@ import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from '../../contexts/RestaurantContext';
+////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
+  static contextType = RestaurantContext;
+
   render() {
     return (
       <div id="App">

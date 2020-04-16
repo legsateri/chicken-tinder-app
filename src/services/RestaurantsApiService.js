@@ -3,7 +3,7 @@ import config from './config';
 ////////////////////////////////////////////////////////////////////////////////
 
 const RestaurantsApiService = {
-    getRestaurants(output, parameters) {
+    getRestaurants() {
         return fetch( `${config.RESTAURANTS_ENDPOINT}/json?input=restaurants&inputtype=textquery&locationbias=ipbias&key=${config.RESTAURANTS_KEY}`)
             .then(res => 
                 (!res.ok)
