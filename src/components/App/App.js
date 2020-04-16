@@ -12,7 +12,7 @@ import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 class App extends Component {
   render() {
     return (
-      <body id="App">
+      <div id="App">
         <header className="app">
           <Navigation />
         </header>
@@ -36,7 +36,7 @@ class App extends Component {
             />
           </Switch>
         </main>
-      </body>
+      </div>
     )
   }
 }
