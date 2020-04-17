@@ -3,15 +3,15 @@ import config from './config';
 ////////////////////////////////////////////////////////////////////////////////
 
 const RestaurantsApiService = {
-    getRestaurants() {
-        return fetch( `${config.RESTAURANTS_ENDPOINT}/json?query=restaurants&key=${config.RESTAURANTS_KEY}`)
-            .then(res => 
+    getRestaurants(query) {
+        return fetch(`${config.RESTAURANTS_ENDPOINT}/json?query=${query}&key=${config.RESTAURANTS_KEY}`, {})
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
             .then(res => {
-                if(!res.data) {
+                if (!res.data) {
                     throw new Error("No Results Found")
                 }
                 return res.data
