@@ -7,6 +7,7 @@ import Navigation from '../Navigation/Navigation';
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
+import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
 ////////////////////////////////////////////////////////////////////////////////
 import RestaurantContext from '../../contexts/RestaurantContext';
 ////////////////////////////////////////////////////////////////////////////////
@@ -37,6 +38,11 @@ class App extends Component {
             <Route
               path={"/start-group"}
               component={StartGroupPage}
+            />
+
+            <Route
+              path={"/restaurants/:restaurant_id"}
+              component={RestaurantPage}
             />
           </Switch>
         </main>

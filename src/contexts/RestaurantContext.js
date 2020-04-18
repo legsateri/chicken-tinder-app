@@ -5,7 +5,7 @@ import RestaurantsApiService from '../services/RestaurantsApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
 const RestaurantContext = React.createContext({
-    query: [],
+    query: ["restaurants"],
     restaurantResults: [],
     error: null,
     setQuery: () => { },
@@ -17,9 +17,9 @@ const RestaurantContext = React.createContext({
 
 export default RestaurantContext;
 
-class RestaurantProvider extends Component {
+export class RestaurantProvider extends Component {
     state = {
-        query: ['restaurants'],
+        query: ["restaurants"],
         restaurantResults: [],
         error: null
     }
@@ -48,6 +48,23 @@ class RestaurantProvider extends Component {
     clearError = () => {
         this.setState({ error: null })
     }
-}
 
-export default RestaurantProvider;
+    render() {
+        const value = {
+            query: this.state.query,
+            setQuery: this.setQuery,
+            restaurantResults: this.state.restaurantResults,
+            setRestaurantResults: this.setRestaurantResults,
+            clearRestaurantResults: this.clearRestaurantResults,
+            error: this.state.error,
+            setError: this.setError,
+            clearError: this.clearError
+        }
+
+        return (
+            <RestaurantContext.Provider value={value}>
+                {this.props.children}
+            </RestaurantContext.Provider>
+        )
+    }
+};
