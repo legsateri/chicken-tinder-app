@@ -3,9 +3,16 @@ import config from '../config';
 ////////////////////////////////////////////////////////////////////////////////
 
 const RestaurantsApiService = {
-    getRestaurants(query) {
-        return fetch(
-            `https://cors-anywhere.herokuapp.com/${config.RESTAURANTS_ENDPOINT}/json?query=restaurants&key=${config.RESTAURANTS_KEY}`, {})
+    getRestaurants() {
+        const url = `https://cors-anywhere.herokuapp.com/${config.RESTAURANTS_ENDPOINT}/json?query=restaurants&key=${config.RESTAURANTS_KEY}`;
+        const options = {
+            method: 'GET',
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
+
+        return fetch(url, options)
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
@@ -13,7 +20,7 @@ const RestaurantsApiService = {
             )
             .then(res => {
                 if (!res.data) {
-                    throw new Error("No Results Found")
+                    throw new Error("Something went wrong, please try again later.")
                 }
                 return res.data
             })

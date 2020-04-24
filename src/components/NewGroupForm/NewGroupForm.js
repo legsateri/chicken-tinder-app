@@ -35,7 +35,7 @@ class NewGroupForm extends Component {
                         <input placeholder=" GROUP NAME" type="text" name="group" id="group" className="input_field" />
                         <br />
 
-                        <Link to="/restaurants/:restaurant_id"><button type="submit" className="submit_button" onClick={() => RestaurantApiService.getRestaurants(context.setQuery)}>START GROUP</button></Link>
+                        <Link to="/restaurants/:restaurant_id"><button type="submit" className="submit_button" onClick={() => RestaurantApiService.getRestaurants(context.setRestaurantResults)}>START GROUP</button></Link>
                     </form>
                 )}
             </RestaurantContext.Consumer>

@@ -5,7 +5,7 @@ import RestaurantsApiService from '../services/RestaurantsApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
 const RestaurantContext = React.createContext({
-    query: ["restaurants"],
+    query: [],
     restaurantResults: [],
     error: null,
     setQuery: () => { },
