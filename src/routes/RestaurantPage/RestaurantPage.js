@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import RestaurantContext from '../../contexts/RestaurantContext';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Render one restaurant at a time
-
 class RestaurantPage extends Component {
     static contextType = RestaurantContext;
 
