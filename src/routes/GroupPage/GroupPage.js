@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
+import ChatListItem from '../../components/ChatListItem/ChatListItem'
+////////////////////////////////////////////////////////////////////////////////
 import './GroupPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -28,9 +30,7 @@ class GroupPage extends Component {
                         </ul>
                     </div>
 
-                    <div className="chat_box">
-                        <h3 className="chat_flex"><div className="circle_icon"></div>Group One Group Chat</h3>
-                    </div>
+                    <ChatListItem />
 
                     <button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button>
                 </main>

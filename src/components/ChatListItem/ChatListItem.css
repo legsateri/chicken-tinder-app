@@ -1,0 +1,28 @@
+@media only screen and (min-width: 200px) {
+    .chat_box {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: 1px solid darkgray;
+        border-top: 1px solid darkgray;
+    }
+    .circle_icon {
+        background-color: white;
+        border: 2px solid darkgray;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+    .chat_flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .chat_box {
+        width: 500px;
+    }
+}
