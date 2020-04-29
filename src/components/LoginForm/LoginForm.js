@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import './LoginForm.css';
 ////////////////////////////////////////////////////////////////////////////////
@@ -15,7 +16,7 @@ class LoginForm extends Component {
                     <input  placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
                     <br />
                     
-                    <button type="submit" className="submit_button">LOGIN</button>
+                    <Link to ="/account"><button type="submit" className="submit_button">LOGIN</button></Link>
                 </form>
             </>
         )

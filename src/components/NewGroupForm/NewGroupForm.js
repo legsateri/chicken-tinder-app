@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import './NewGroupForm.css';
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Button should link to group page once created.
+
 class NewGroupForm extends Component {
     render() {
         return (

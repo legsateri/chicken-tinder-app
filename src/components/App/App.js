@@ -1,17 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation';
 ////////////////////////////////////////////////////////////////////////////////
-import Homepage from '../../routes/Homepage/Homepage';
-import LoginPage from '../../routes/LoginPage/LoginPage';
-import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
-import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
-////////////////////////////////////////////////////////////////////////////////
 import RestaurantContext from '../../contexts/RestaurantContext';
 ////////////////////////////////////////////////////////////////////////////////
-import config from '../../config';
+import AccountPage from '../../routes/AccountPage/AccountPage';
+import Homepage from '../../routes/Homepage/Homepage';
+import LoginPage from '../../routes/LoginPage/LoginPage';
+import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
+import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
 
 /* 
@@ -49,9 +49,9 @@ class App extends Component {
     const options = {
       method: 'GET',
       headers: {
-          "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*"
       }
-  }
+    }
 
     fetch(url, options)
       .then(res => {
@@ -85,6 +85,11 @@ class App extends Component {
         <main id="page_wrap">
           <Switch>
             <Route
+              path={"/account"}
+              component={AccountPage}
+            />
+
+            <Route
               exact
               path={"/"}
               component={Homepage}
@@ -96,13 +101,13 @@ class App extends Component {
             />
 
             <Route
-              path={"/start-group"}
-              component={StartGroupPage}
+              path={"/restaurants/:restaurant_id"}
+              component={RestaurantPage}
             />
 
             <Route
-              path={"/restaurants/:restaurant_id"}
-              component={RestaurantPage}
+              path={"/start-group"}
+              component={StartGroupPage}
             />
           </Switch>
         </main>

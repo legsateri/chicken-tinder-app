@@ -1,0 +1,40 @@
+@media only screen and (min-width: 200px) {
+    .subhead {
+        font-size: 20px;
+        margin-top: 50px;
+    }
+    .groups_box, .past_match_box, .chef_mode_box {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .list_item {
+        text-align: left;
+        padding-bottom: 10px;
+    }
+    .go_button {
+        float: right;
+        width: 30px;
+        padding: 0px;
+        height: 20px;
+        border: 1px solid lightgray;
+        background-color: white;
+    }
+
+    .chef_mode_box {
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .groups_box, .past_match_box, .chef_mode_box {
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width: 975px) {}
