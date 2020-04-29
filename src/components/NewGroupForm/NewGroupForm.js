@@ -1,10 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import './NewGroupForm.css';
 ////////////////////////////////////////////////////////////////////////////////
-
-// FIXME: Button should link to group page once created.
 
 class NewGroupForm extends Component {
     render() {
@@ -29,7 +28,7 @@ class NewGroupForm extends Component {
                     <input placeholder=" GROUP NAME" type="text" name="group" id="group" className="input_field" />
                     <br />
 
-                    <button type="submit" className="submit_button">START GROUP</button>
+                    <Link to="/group"><button type="submit" className="submit_button">START GROUP</button></Link>
                 </form>
             </>
         )

@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import './AccountPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: My Groups buttons should link to group page once created.
 // FIXME: Past Matches buttons should link to restaurant page conce created.
 // FIXME: Chef Mode buttons should link to that app once created.
 
@@ -20,11 +20,11 @@ class AccountPage extends Component {
                     <div className="groups_box">
                         <h2 className="subhead">My Groups</h2>
                         <ul className="list">
-                            <li className="list_item">Group One <button type="submit" className="go_button">GO</button></li>
-                            <li className="list_item">Group Two <button type="submit" className="go_button">GO</button></li>
-                            <li className="list_item">Group Three <button type="submit" className="go_button">GO</button></li>
-                            <li className="list_item">Group Four <button type="submit" className="go_button">GO</button></li>
-                            <li className="list_item">Group Five <button type="submit" className="go_button">GO</button></li> 
+                            <li className="list_item">Group One <Link to="/group"><button type="submit" className="go_button">GO</button></Link></li>
+                            <li className="list_item">Group Two <Link to="/group"><button type="submit" className="go_button">GO</button></Link></li>
+                            <li className="list_item">Group Three <Link to="/group"><button type="submit" className="go_button">GO</button></Link></li>
+                            <li className="list_item">Group Four <Link to="/group"><button type="submit" className="go_button">GO</button></Link></li>
+                            <li className="list_item">Group Five <Link to="/group"><button type="submit" className="go_button">GO</button></Link></li> 
                         </ul>
                     </div>
 

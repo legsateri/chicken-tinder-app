@@ -1,0 +1,45 @@
+@media only screen and (min-width: 200px) {
+    #past_match_placeholder {
+        background-color: white;
+        border: 2px solid darkgray;
+        height: 300px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    .chat_box {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .circle_icon {
+        background-color: white;
+        border: 2px solid darkgray;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+    .chat_flex {
+        display: flex;
+        align-items: center;
+    }
+    #group_search_button {
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+    .hide {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .match_flex {
+        display: flex;
+        justify-content: center;
+    }
+    #match_one, #match_three {
+        margin-right: 40px;
+    }
+}
