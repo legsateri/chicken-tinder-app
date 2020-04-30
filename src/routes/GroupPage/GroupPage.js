@@ -7,7 +7,6 @@ import './GroupPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 // FIXME: Link chat to individual chat page once made.
-// FIXME: Link to "random" restaurant page once made.
 
 class GroupPage extends Component {
     render() {
@@ -32,7 +31,7 @@ class GroupPage extends Component {
 
                     <ChatListItem />
 
-                    <button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button>
+                    <Link to="/restaurants/:restaurant_id"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
                 </main>
             </>
         )

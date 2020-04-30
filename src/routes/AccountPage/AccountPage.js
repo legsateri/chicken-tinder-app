@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import './AccountPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Past Matches buttons should link to restaurant page conce created.
 // FIXME: Chef Mode buttons should link to that app once created.
 
 class AccountPage extends Component {

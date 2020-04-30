@@ -1,18 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import RestaurantContext from '../../contexts/RestaurantContext';
+import EwButton from '../../components/EwButton/EwButton';
+import YumButton from '../../components/YumButton/YumButton';
+////////////////////////////////////////////////////////////////////////////////
+import './RestaurantPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 class RestaurantPage extends Component {
-    static contextType = RestaurantContext;
-
-    renderRestaurantInfo() {
-        const restaurantResults = this.context.restaurantResults;
-
-        console.log(restaurantResults)
-    }
-
     render() {
         return (
             <>
@@ -20,6 +15,13 @@ class RestaurantPage extends Component {
                     <header className="header spacing">
                         <h1>RESTAURANT NAME</h1>
                     </header>
+
+                    <div className="restaurant_box"></div>
+
+                    <div className="restaurant_buttons">
+                        <EwButton />
+                        <YumButton />
+                    </div>
                 </main>
             </>
         )
