@@ -8,6 +8,7 @@ import Navigation from '../Navigation/Navigation';
 import RestaurantContext from '../../contexts/RestaurantContext';
 ////////////////////////////////////////////////////////////////////////////////
 import AccountPage from '../../routes/AccountPage/AccountPage';
+import ChatListPage from '../../routes/ChatListPage/ChatListPage';
 import GroupPage from '../../routes/GroupPage/GroupPage'
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
@@ -88,6 +89,11 @@ class App extends Component {
             <Route
               path={"/account"}
               component={AccountPage}
+            />
+
+            <Route 
+              path={"/chat"}
+              component={ChatListPage}
             />
 
             <Route

@@ -1,6 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////
+import { Link } from 'react-router-dom';/////////////////////////////////////
 import ChatListItem from '../../components/ChatListItem/ChatListItem'
 ////////////////////////////////////////////////////////////////////////////////
 import './GroupPage.css';
@@ -17,7 +18,7 @@ class GroupPage extends Component {
                         <h1>Group One</h1>
                     </header>
 
-                    <div>
+                    <div className="match_box">
                         <h2 className="subhead">Past Matches</h2>
                         <ul className="list match_flex">
                             <li className="list_item" id="match_one"><div id="past_match_placeholder"></div></li>

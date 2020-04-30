@@ -9,7 +9,11 @@ class ChatListItem extends Component {
         return (
             <>
                 <div className="chat_box">
-                    <h3 className="chat_flex"><div className="circle_icon"></div>Group One Group Chat</h3>
+                    <div className="circle_icon"></div>
+                    <div className="nested_items">
+                        <h3 className="chat_name">Group One Group Chat</h3>
+                        <p className="hide_chat">Chat snippet lorem ipsum yadda yadda yadda yadda yadda...</p>
+                    </div>
                 </div>
             </>
         )

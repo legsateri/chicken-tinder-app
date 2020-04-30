@@ -1,18 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
-import './YumButton.css';
+import './SearchChatBar.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-class YumButton extends Component {
+class SearchChatBar extends Component {
     render() {
         return (
             <>
-                <Link to="/restaurants/:restaurant_id"><div className="yum_circle">YUM!</div></Link>
+                <form className="searchbar">
+                    <input placeholder=" SEARCH" type="text" name="search" id="search" className="input_field" />
+                </form>
             </>
         )
     }
 }
 
-export default YumButton;
+export default SearchChatBar;

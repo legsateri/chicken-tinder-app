@@ -15,6 +15,12 @@
     .hide {
         display: none;
     }
+    .match_box {
+        margin-right: auto;
+        margin-left: auto;
+        width: 250px;
+        border-bottom: 1px solid darkgray;
+    }
 }
 
 @media only screen and (min-width: 750px) {
@@ -24,5 +30,8 @@
     }
     #match_one, #match_three {
         margin-right: 40px;
+    }
+    .match_box {
+        width: 500px;
     }
 }
