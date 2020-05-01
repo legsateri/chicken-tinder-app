@@ -7,8 +7,6 @@ import ChatListItem from '../../components/ChatListItem/ChatListItem'
 import './GroupPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Link chat to individual chat page once made.
-
 class GroupPage extends Component {
     render() {
         return (

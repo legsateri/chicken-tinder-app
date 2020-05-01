@@ -7,8 +7,6 @@ import SearchChatBar from '../../components/SearchChatBar/SearchChatBar';
 import './ChatListPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Each list item should link to individual chat once created.
-
 class ChatListPage extends Component {
     render() {
         return (

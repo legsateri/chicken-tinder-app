@@ -9,6 +9,7 @@ import RestaurantContext from '../../contexts/RestaurantContext';
 ////////////////////////////////////////////////////////////////////////////////
 import AccountPage from '../../routes/AccountPage/AccountPage';
 import ChatListPage from '../../routes/ChatListPage/ChatListPage';
+import ChatPage from '../../routes/ChatPage/ChatPage';
 import GroupPage from '../../routes/GroupPage/GroupPage'
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
@@ -91,9 +92,15 @@ class App extends Component {
               component={AccountPage}
             />
 
-            <Route 
+            <Route
+              exact
               path={"/chat"}
               component={ChatListPage}
+            />
+
+            <Route
+              path={"/chat/:group_id"}
+              component={ChatPage}
             />
 
             <Route
