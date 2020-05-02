@@ -19,6 +19,12 @@ import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 
 /* 
 TODO: 
+  5.  Trigger random restaurant page to appear from the API results.
+  6.  Create static app version of Chef Mode.
+  7.  Code up server for user creation/login.
+  8.  Will determine once I get this far...
+DONE:
+  1.  Finish doing basic static app for the remaining wires (minus chef mode).
   2.  Find the best places within the app to trigger the fetch for real (not sure the App 
       component is the right spot, it might be). Will need to be accessible from anywhere we 
       want to make it possible to trigger a restaurant search. For simplicity of the MVP, might 
@@ -28,11 +34,6 @@ TODO:
   4.  Add an input on the individual group pages where group members can update the zipcode
       to search within. We want the app to remember the zip so it doesn't have to be updated
       every time, kinda like GrubHub.
-  5.  Create static app version of Chef Mode.
-  6.  Code up server for user creation/login.
-  7.  Will determine once I get this far...
-DONE:
-  1.  Finish doing basic static app for the remaining wires (minus chef mode).
 */
 
 class App extends Component {

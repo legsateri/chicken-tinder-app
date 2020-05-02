@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "alias": "chicken-tinder-app",
+    "name": "chicken-tinder-app",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+  }
