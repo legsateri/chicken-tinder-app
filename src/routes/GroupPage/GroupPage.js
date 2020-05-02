@@ -30,7 +30,7 @@ class GroupPage extends Component {
 
                     <ChatListItem />
 
-                    <Link to="/restaurants/:restaurant_id"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
+                    <Link to="/search"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
                 </main>
             </>
         )

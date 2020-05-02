@@ -13,7 +13,7 @@ class RestaurantPage extends Component {
             <>
                 <main id="page_wrap">
                     <header className="header spacing">
-                        <h1>RESTAURANT NAME</h1>
+                        <h1>Restaurant Name</h1>
                     </header>
 
                     <div className="restaurant_box"></div>

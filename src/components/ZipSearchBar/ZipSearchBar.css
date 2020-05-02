@@ -1,0 +1,26 @@
+@media only screen and (min-width: 200px) {
+    .zip_input {
+        width: 180px;
+        height: 25px;
+        margin-bottom: 20px;
+        border: 1px solid lightgray;
+    }
+    .zip_button {
+        width: 100px;
+        padding: 0px;
+        height: 28px;
+        margin-bottom: 25px;
+        margin-left: 20px;
+        border: 1px solid lightgray;
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .zip_input {
+        width: 300px;
+    }
+    .zip_button {
+        width: 130px;
+    }
+}
