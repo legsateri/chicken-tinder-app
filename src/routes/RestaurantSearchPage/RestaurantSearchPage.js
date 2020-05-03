@@ -1,16 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import ZipSearchBar from '../../components/ZipSearchBar/ZipSearchBar';
+import RestaurantList from '../../components/RestaurantList/RestaurantList';
+import RestaurantZipSearchBar from '../../components/RestaurantZipSearchBar/RestaurantZipSearchBar';
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
 class RestaurantSearchPage extends Component {
-    state = {
-        restaurants: [],
-        searchQuery: '60618',
-        error: []
+    constructor(props) {
+        super(props)
+        this.state = {
+            restaurants: [],
+            searchQuery: '60618',
+            error: []
+        }
     }
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
@@ -32,7 +36,7 @@ class RestaurantSearchPage extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Good response from Google Places API:', data)
+                console.log('Good response from Google Places API')
                 this.setState({
                     restaurants: data,
                     error: null
@@ -64,7 +68,14 @@ class RestaurantSearchPage extends Component {
                         <h1>Find A Match</h1>
                     </header>
 
-                    <ZipSearchBar handleSearchSubmit={this.handleSearchSubmit} />
+                    <RestaurantZipSearchBar handleSearchSubmit={this.handleSearchSubmit} />
+
+                    {/* FIXME: Is there a way to keep this component from loading/running until after 
+                    the search is submitted in the search bar? I think the RestaurantList component is
+                    technically working, you just can't tell because it keeps trying to run before a 
+                    zip code is submitted. */}
+                    
+                    <RestaurantList restaurants={this.state.restaurants} />
                 </main>
             </>
         )

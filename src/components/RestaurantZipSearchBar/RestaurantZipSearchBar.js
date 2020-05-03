@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import './ZipSearchBar.css';
+import './RestaurantZipSearchBar.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-class ZipSearchBar extends Component {
+class RestaurantZipSearchBar extends Component {
     state = {
         searchInput: ''
     }
@@ -40,4 +40,4 @@ class ZipSearchBar extends Component {
     }
 }
 
-export default ZipSearchBar;
+export default RestaurantZipSearchBar;

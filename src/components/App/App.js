@@ -4,8 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation';
 ////////////////////////////////////////////////////////////////////////////////
-import RestaurantContext from '../../contexts/RestaurantContext';
-////////////////////////////////////////////////////////////////////////////////
 import AccountPage from '../../routes/AccountPage/AccountPage';
 import ChatListPage from '../../routes/ChatListPage/ChatListPage';
 import ChatPage from '../../routes/ChatPage/ChatPage';
@@ -17,28 +15,9 @@ import RestaurantSearchPage from '../../routes/RestaurantSearchPage/RestaurantSe
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* 
-TODO: 
-  5.  Trigger random restaurant page to appear from the API results.
-  6.  Create static app version of Chef Mode.
-  7.  Code up server for user creation/login.
-  8.  Will determine once I get this far...
-DONE:
-  1.  Finish doing basic static app for the remaining wires (minus chef mode).
-  2.  Find the best places within the app to trigger the fetch for real (not sure the App 
-      component is the right spot, it might be). Will need to be accessible from anywhere we 
-      want to make it possible to trigger a restaurant search. For simplicity of the MVP, might 
-      want to keep it to the individual group pages, rather than multiple places throughout the 
-      app. Can add that later. 
-  3.  Add an input on the new group form where the creator can add a zipcode to search within.
-  4.  Add an input on the individual group pages where group members can update the zipcode
-      to search within. We want the app to remember the zip so it doesn't have to be updated
-      every time, kinda like GrubHub.
-*/
+/* TODO: Create routes for Chef Mode homepage and Chef Mode recipe page. */
 
 class App extends Component {
-  static contextType = RestaurantContext;
-
   render() {
     return (
       <div id="App">

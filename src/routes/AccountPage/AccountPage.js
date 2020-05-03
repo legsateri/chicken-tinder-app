@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './AccountPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Chef Mode buttons should link to that app once created.
+// TODO: Chef Mode buttons should link to that app once created.
 
 class AccountPage extends Component {
     render() {
