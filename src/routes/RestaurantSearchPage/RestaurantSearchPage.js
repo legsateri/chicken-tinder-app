@@ -13,7 +13,7 @@ class RestaurantSearchPage extends Component {
         super(props)
         this.state = {
             restaurants: [],
-            searchQuery: '60618',
+            searchQuery: "60618",
             error: []
         }
     }
@@ -31,13 +31,13 @@ class RestaurantSearchPage extends Component {
         fetch(formattedSearchUrl)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Something went wrong. Please try again later.');
+                    throw new Error("Something went wrong. Please try again later.");
                 }
                 return response;
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Good response from Google Places API')
+                console.log("Good response from Google Places API.")
                 this.setState({
                     restaurants: data.results,
                     error: null

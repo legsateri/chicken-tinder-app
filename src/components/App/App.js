@@ -7,6 +7,7 @@ import Navigation from '../Navigation/Navigation';
 import AccountPage from '../../routes/AccountPage/AccountPage';
 import ChatListPage from '../../routes/ChatListPage/ChatListPage';
 import ChatPage from '../../routes/ChatPage/ChatPage';
+import ChefModeHomepage from '../../routes/ChefModeHomepage/ChefModeHomepage';
 import GroupPage from '../../routes/GroupPage/GroupPage'
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
@@ -41,6 +42,11 @@ class App extends Component {
             <Route
               path={"/chat/:group_id"}
               component={ChatPage}
+            />
+
+            <Route
+              path={"/chef-mode"}
+              component={ChefModeHomepage}
             />
 
             <Route
