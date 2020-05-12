@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
 import ChatListItem from '../../components/ChatListItem/ChatListItem';
-import SearchChatBar from '../../components/SearchChatBar/SearchChatBar';
+import ChatSearch from '../../components/ChatSearch/ChatSearch';
 ////////////////////////////////////////////////////////////////////////////////
 import './ChatListPage.css';
 ////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +14,7 @@ class ChatListPage extends Component {
                 <main id="page_wrap">
                     <header className="header">
                         <h1>Messages</h1>
-                        <SearchChatBar />
+                        <ChatSearch />
                     </header>
 
                     <div className="chat_list_box">

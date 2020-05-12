@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import './SearchChatBar.css';
+import './ChatSearch.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-class SearchChatBar extends Component {
+class ChatSearch extends Component {
     render() {
         return (
             <>
@@ -16,4 +16,4 @@ class SearchChatBar extends Component {
     }
 }
 
-export default SearchChatBar;
+export default ChatSearch;

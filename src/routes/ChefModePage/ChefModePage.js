@@ -6,9 +6,10 @@ import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Weather search needs to trigger a query to a food API looking for a seasonal recipe. */
+/* TODO: Weather search is done, but needs to trigger a query to a recipe API looking for a seasonal 
+recipe. */
 
-class ChefModeHomepage extends Component {
+class ChefModePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -78,4 +79,4 @@ class ChefModeHomepage extends Component {
     }
 }
 
-export default ChefModeHomepage;
+export default ChefModePage;
