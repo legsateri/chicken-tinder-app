@@ -1,0 +1,18 @@
+@media only screen and (min-width: 200px) {
+    .restaurant_list_item {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid darkgray;
+        width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .restaurant_list_item {
+        width: 500px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}

@@ -1,10 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import RestaurantList from '../../components/RestaurantList/RestaurantList';
 import RestaurantZipSearchBar from '../../components/RestaurantZipSearchBar/RestaurantZipSearchBar';
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../../config';
+////////////////////////////////////////////////////////////////////////////////
+import './RestaurantSearchPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 class RestaurantSearchPage extends Component {
@@ -38,9 +39,10 @@ class RestaurantSearchPage extends Component {
             .then(data => {
                 console.log('Good response from Google Places API')
                 this.setState({
-                    restaurants: data,
+                    restaurants: data.results,
                     error: null
                 });
+                console.log(this.state.restaurants)
             })
             .catch(error => {
                 this.setState({
@@ -56,11 +58,26 @@ class RestaurantSearchPage extends Component {
         }
 
         const formattedUrl = baseUrl + formattedQuery + '&key=' + key;
-        console.log('formatted URL:', formattedUrl);
+
         return formattedUrl;
     }
 
     render() {
+        let listOfRestaurants = [];
+
+        for (let i = 0; i < this.state.restaurants.length; i++) {
+            if (this.state.restaurants.length !== 0) {
+                listOfRestaurants.push(
+                    <li className="restaurant_list_item" key={this.state.restaurants[i].id}>
+                        <div>
+                            <h2>{this.state.restaurants[i].name}</h2>
+                            <p>{this.state.restaurants[i].formatted_address}</p>
+                        </div>
+                    </li>
+                )
+            }
+        }
+
         return (
             <>
                 <main id="page_wrap">
@@ -69,13 +86,7 @@ class RestaurantSearchPage extends Component {
                     </header>
 
                     <RestaurantZipSearchBar handleSearchSubmit={this.handleSearchSubmit} />
-
-                    {/* FIXME: Is there a way to keep this component from loading/running until after 
-                    the search is submitted in the search bar? I think the RestaurantList component is
-                    technically working, you just can't tell because it keeps trying to run before a 
-                    zip code is submitted. */}
-                    
-                    <RestaurantList restaurants={this.state.restaurants} />
+                    <ul className="list">{listOfRestaurants}</ul>
                 </main>
             </>
         )
