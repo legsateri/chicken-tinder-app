@@ -6,8 +6,7 @@ import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Set this up the ame way the Flavor Forecast one was. Zip search triggers weather search in the 
-background. That triggers a query to a food API looking for a seasonal recipe. */
+/* TODO: Weather search needs to trigger a query to a food API looking for a seasonal recipe. */
 
 class ChefModeHomepage extends Component {
     constructor(props) {
@@ -69,6 +68,7 @@ class ChefModeHomepage extends Component {
                 <main id="page_wrap">
                     <header className="header spacing">
                         <h1>Chef Mode</h1>
+                        <p>Enter your zip and we'll suggest recipes based on the local weather.</p>
                     </header>
 
                     <RecipeZipsearch handleSearchSubmit={this.handleSearchSubmit} />

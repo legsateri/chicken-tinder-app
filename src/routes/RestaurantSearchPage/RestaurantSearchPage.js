@@ -83,6 +83,7 @@ class RestaurantSearchPage extends Component {
                 <main id="page_wrap">
                     <header className="header spacing">
                         <h1>Find A Match</h1>
+                        <p>Enter your zip and we'll suggest some restaurants in your area.</p>
                     </header>
 
                     <RestaurantZipSearchBar handleSearchSubmit={this.handleSearchSubmit} />
