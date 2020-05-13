@@ -13,23 +13,24 @@ class ChefModePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            weather: [],
-            searchQuery: "60618",
-            error: []
+            weather: "",
+            weatherQuery: "60618",
+            weatherError: [],
+            recipeQuery: ""
         }
     }
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
         searchSubmitEvent.preventDefault();
         this.setState({
-            searchQuery: searchInput
+            weatherQuery: searchInput
         });
 
-        const baseUrl = `${config.WEATHER_ENDPOINT}`;
-        const key = `${config.WEATHER_KEY}`;
-        const formattedSearchUrl = this.formatQuery(baseUrl, searchInput, key);
+        const baseWeatherUrl = `${config.WEATHER_ENDPOINT}`;
+        const weatherKey = `${config.WEATHER_KEY}`;
+        const formattedWeatherUrl = this.formatQuery(baseWeatherUrl, searchInput, weatherKey);
 
-        fetch(formattedSearchUrl)
+        fetch(formattedWeatherUrl)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Something went wrong. Please try again later.");
@@ -40,30 +41,49 @@ class ChefModePage extends Component {
             .then(data => {
                 console.log("Good response from Weather API.")
                 this.setState({
-                    weather: data,
-                    error: null
+                    weather: data.current.temp_f,
+                    weatherError: null
                 });
                 console.log(this.state.weather)
             })
-            .catch(error => {
+            .catch(weatherError => {
                 this.setState({
-                    error: error.message
+                    weatherError: weatherError.message
                 });
             });
-    }
 
-    formatQuery = (baseUrl, searchInput, key) => {
-        let formattedQuery;
+        let recipeSearchInput;
 
-        if (searchInput !== "") {
-            formattedQuery = "?q=" + searchInput
+        if (this.state.weather >= 80) {
+            recipeSearchInput = "summer"
+        } else if (this.state.weather >= 50 & this.state.weather <= 79) {
+            recipeSearchInput = "spring"
+        } else if (this.state.weather >= 35 & this.state.weather <= 49) {
+            recipeSearchInput = "fall"
+        } else {
+            recipeSearchInput = "winter"
         }
 
-        const formattedUrl = baseUrl + formattedQuery + "&key=" + key;
-        return formattedUrl;
+        console.log(recipeSearchInput)
+
+        this.setState({
+            recipeQuery: recipeSearchInput
+        });
+    }
+
+    formatQuery = (baseWeatherUrl, searchInput, weatherKey) => {
+        let formattedWeatherQuery;
+
+        if (searchInput !== "") {
+            formattedWeatherQuery = "?q=" + searchInput
+        }
+
+        const formattedWeatherUrl = baseWeatherUrl + formattedWeatherQuery + "&key=" + weatherKey;
+        return formattedWeatherUrl;
     }
 
     render() {
+        console.log(this.state.recipeQuery)
         return (
             <>
                 <main id="page_wrap">
