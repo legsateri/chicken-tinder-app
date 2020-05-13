@@ -6,8 +6,8 @@ import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Weather search is done, but needs to trigger a query to a recipe API looking for a seasonal 
-recipe. */
+/* TODO: Weather search now creates a query term. Now need to feed that term (stored in state) into a 
+new API request for recipes. Formatted fetch url is saved in Postman for reference */
 
 class ChefModePage extends Component {
     constructor(props) {
@@ -83,7 +83,6 @@ class ChefModePage extends Component {
     }
 
     render() {
-        console.log(this.state.recipeQuery)
         return (
             <>
                 <main id="page_wrap">
