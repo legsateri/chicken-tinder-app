@@ -16,7 +16,7 @@ import RestaurantSearchPage from '../../routes/RestaurantSearchPage/RestaurantSe
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Create routes for Chef Mode homepage and Chef Mode recipe page. */
+/* TODO: Create routes for Chef Mode recipe page. */
 
 class App extends Component {
   render() {

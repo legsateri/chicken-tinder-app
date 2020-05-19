@@ -6,8 +6,8 @@ import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Weather search now creates a query term. Now need to feed that term (stored in state) into a 
-new API request for recipes. Formatted fetch url is saved in Postman for reference */
+/* TODO: Fetch to recipe API is functioning. Now need to render one random recipe at a time with option 
+to see a different recipe if the one you're viewing doesn't float your boat. */
 
 class ChefModePage extends Component {
     constructor(props) {

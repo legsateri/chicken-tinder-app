@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import './AccountPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Chef Mode buttons should link to that app once created.
-
 class AccountPage extends Component {
     render() {
         return (
@@ -42,7 +40,7 @@ class AccountPage extends Component {
                         <h2 className="subhead">Chef Mode</h2>
                         <ul className="list">
                             <li className="list_item">Past Recipes <button type="submit" className="go_button">GO</button></li>
-                            <li className="list_item">Find New Recipes <button type="submit" className="go_button">GO</button></li>
+                            <li className="list_item">Find New Recipes <Link to="/chef-mode"><button type="submit" className="go_button">GO</button></Link></li>
                         </ul>
                     </div>
                 </main>
