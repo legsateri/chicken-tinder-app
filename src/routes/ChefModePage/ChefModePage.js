@@ -29,7 +29,7 @@ class ChefModePage extends Component {
             weatherQuery: searchInput
         });
 
-        const baseWeatherUrl = `${config.WEATHER_ENDPOINT}`;
+        const baseWeatherUrl = `https://cors-anywhere.herokuapp.com/${config.WEATHER_ENDPOINT}`;
         const weatherKey = `${config.WEATHER_KEY}`;
         const formattedWeatherUrl = this.formatWeatherQuery(baseWeatherUrl, searchInput, weatherKey);
 
@@ -103,7 +103,7 @@ class ChefModePage extends Component {
     }
 
     handleRecipeFetch = () => {
-        const baseRecipeUrl = `${config.RECIPE_ENDPOINT}`;
+        const baseRecipeUrl = `https://cors-anywhere.herokuapp.com/${config.RECIPE_ENDPOINT}`;
         const recipeKey = `${config.RECIPE_KEY}`;
         const recipeId = `${config.RECIPE_ID}`;
         const formattedRecipeUrl = this.formatReceipeQuery(baseRecipeUrl, recipeKey, recipeId);
