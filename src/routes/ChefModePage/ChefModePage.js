@@ -16,7 +16,9 @@ class ChefModePage extends Component {
             weather: "",
             weatherQuery: "60618",
             weatherError: [],
-            recipeQuery: ""
+            recipeQuery: "",
+            recipes: [],
+            recipeError: [],
         }
         this.handleRecipeQuery = this.handleRecipeQuery.bind(this)
     }
@@ -29,7 +31,7 @@ class ChefModePage extends Component {
 
         const baseWeatherUrl = `${config.WEATHER_ENDPOINT}`;
         const weatherKey = `${config.WEATHER_KEY}`;
-        const formattedWeatherUrl = this.formatQuery(baseWeatherUrl, searchInput, weatherKey);
+        const formattedWeatherUrl = this.formatWeatherQuery(baseWeatherUrl, searchInput, weatherKey);
 
         fetch(formattedWeatherUrl)
             .then(response => {
@@ -47,12 +49,24 @@ class ChefModePage extends Component {
                 });
                 console.log(this.state.weather)
                 this.handleRecipeQuery()
+                this.handleRecipeFetch()
             })
             .catch(weatherError => {
                 this.setState({
                     weatherError: weatherError.message
                 });
             });
+    }
+
+    formatWeatherQuery = (baseWeatherUrl, searchInput, weatherKey) => {
+        let formattedWeatherQuery;
+
+        if (searchInput !== "") {
+            formattedWeatherQuery = "?q=" + searchInput
+        }
+
+        const formattedWeatherUrl = baseWeatherUrl + formattedWeatherQuery + "&key=" + weatherKey;
+        return formattedWeatherUrl;
     }
 
     handleRecipeQuery = () => {
@@ -75,15 +89,46 @@ class ChefModePage extends Component {
         console.log(this.state.recipeQuery)
     }
 
-    formatQuery = (baseWeatherUrl, searchInput, weatherKey) => {
-        let formattedWeatherQuery;
+    formatReceipeQuery = (baseRecipeUrl, recipeKey, recipeId) => {
+        let recipeInput = this.state.recipeQuery;
 
-        if (searchInput !== "") {
-            formattedWeatherQuery = "?q=" + searchInput
+        let formattedRecipeQuery;
+
+        if (recipeInput !== "") {
+            formattedRecipeQuery = "?q=" + recipeInput
         }
 
-        const formattedWeatherUrl = baseWeatherUrl + formattedWeatherQuery + "&key=" + weatherKey;
-        return formattedWeatherUrl;
+        const formattedRecipeUrl = baseRecipeUrl + formattedRecipeQuery + "&app_key=" + recipeKey + "&app_id=" + recipeId;
+        return formattedRecipeUrl;
+    }
+
+    handleRecipeFetch = () => {
+        const baseRecipeUrl = `${config.RECIPE_ENDPOINT}`;
+        const recipeKey = `${config.RECIPE_KEY}`;
+        const recipeId = `${config.RECIPE_ID}`;
+        const formattedRecipeUrl = this.formatReceipeQuery(baseRecipeUrl, recipeKey, recipeId);
+
+        fetch(formattedRecipeUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Something went wrong. Please try again later.");
+                }
+                return response;
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Good response from Recipe API.")
+                this.setState({
+                    recipes: data.hits,
+                    recipeError: null
+                });
+                console.log(this.state.recipes)
+            })
+            .catch(recipeError => {
+                this.setState({
+                    recipeError: recipeError.message
+                });
+            });
     }
 
     render() {
