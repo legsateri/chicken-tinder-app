@@ -18,6 +18,7 @@ class ChefModePage extends Component {
             weatherError: [],
             recipeQuery: ""
         }
+        this.handleRecipeQuery = this.handleRecipeQuery.bind(this)
     }
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
@@ -45,13 +46,16 @@ class ChefModePage extends Component {
                     weatherError: null
                 });
                 console.log(this.state.weather)
+                this.handleRecipeQuery()
             })
             .catch(weatherError => {
                 this.setState({
                     weatherError: weatherError.message
                 });
             });
+    }
 
+    handleRecipeQuery = () => {
         let recipeSearchInput;
 
         if (this.state.weather >= 80) {
@@ -64,11 +68,11 @@ class ChefModePage extends Component {
             recipeSearchInput = "winter"
         }
 
-        console.log(recipeSearchInput)
-
         this.setState({
             recipeQuery: recipeSearchInput
         });
+
+        console.log(this.state.recipeQuery)
     }
 
     formatQuery = (baseWeatherUrl, searchInput, weatherKey) => {
