@@ -5,9 +5,8 @@ import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
-
-/* TODO: Fetch to recipe API is functioning. Now need to render one random recipe at a time with option 
-to see a different recipe if the one you're viewing doesn't float your boat. */
+import './ChefModePage.css';
+////////////////////////////////////////////////////////////////////////////////
 
 class ChefModePage extends Component {
     constructor(props) {
@@ -132,6 +131,21 @@ class ChefModePage extends Component {
     }
 
     render() {
+        let listOfRecipes = [];
+
+        for (let i = 0; i < this.state.recipes.length; i++) {
+            if (this.state.recipes.length !== 0) {
+                listOfRecipes.push(
+                    <li className="recipe_list_item" key={this.state.recipes[i]}>
+                        <div>
+                            <img src={this.state.recipes[i].recipe.image} alt="delicious food recipe" />
+                            <h2 className="recipe_name"><a href={this.state.recipes[i].recipe.url} target="_blank">{this.state.recipes[i].recipe.label}</a></h2>
+                        </div>
+                    </li>
+                )
+            }
+        }
+
         return (
             <>
                 <main id="page_wrap">
@@ -141,6 +155,7 @@ class ChefModePage extends Component {
                     </header>
 
                     <RecipeZipsearch handleSearchSubmit={this.handleSearchSubmit} />
+                    <ul className="list">{listOfRecipes}</ul>
                 </main>
             </>
         )
