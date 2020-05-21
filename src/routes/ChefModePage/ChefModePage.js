@@ -136,10 +136,10 @@ class ChefModePage extends Component {
         for (let i = 0; i < this.state.recipes.length; i++) {
             if (this.state.recipes.length !== 0) {
                 listOfRecipes.push(
-                    <li className="recipe_list_item" key={this.state.recipes[i]}>
+                    <li className="recipe_list_item" key={i}>
                         <div>
                             <img src={this.state.recipes[i].recipe.image} alt="delicious food recipe" />
-                            <h2 className="recipe_name"><a href={this.state.recipes[i].recipe.url} target="_blank">{this.state.recipes[i].recipe.label}</a></h2>
+                            <h2 className="recipe_name"><a href={this.state.recipes[i].recipe.url} target="_blank" rel="noopener noreferrer">{this.state.recipes[i].recipe.label}</a></h2>
                         </div>
                     </li>
                 )
