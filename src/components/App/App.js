@@ -15,66 +15,83 @@ import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
 import RestaurantSearchPage from '../../routes/RestaurantSearchPage/RestaurantSearchPage';
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
 ////////////////////////////////////////////////////////////////////////////////
+import TokenService from '../../services/TokenService';
+////////////////////////////////////////////////////////////////////////////////
+import PrivateRoute from '../../utils/PrivateRoute';
+import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
+////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hasLogin: TokenService.hasAuthToken()
+    }
+  }
+
+  checkForLogin = () => {
+    this.setState({
+      hasLogin: TokenService.hasAuthToken()
+    })
+  }
+
   render() {
     return (
       <div id="App">
         <header className="app">
-          <Navigation />
+          <Navigation checkForLogin={this.checkForLogin} />
         </header>
 
         <main id="page_wrap">
           <Switch>
-            <Route
-              path={"/account"}
-              component={AccountPage}
-            />
-
-            <Route
-              exact
-              path={"/chat"}
-              component={ChatListPage}
-            />
-
-            <Route
-              path={"/chat/:group_id"}
-              component={ChatPage}
-            />
-
-            <Route
-              path={"/chef-mode"}
-              component={ChefModePage}
-            />
-
-            <Route
-              path={"/group"}
-              component={GroupPage}
-            />
-
             <Route
               exact
               path={"/"}
               component={Homepage}
             />
 
-            <Route
+            <PublicOnlyRoute
               path={"/login"}
               component={LoginPage}
             />
 
-            <Route
+            <PrivateRoute
+              path={"/account"}
+              component={AccountPage}
+            />
+
+            <PrivateRoute
+              exact
+              path={"/chat"}
+              component={ChatListPage}
+            />
+
+            <PrivateRoute
+              path={"/chat/:group_id"}
+              component={ChatPage}
+            />
+
+            <PrivateRoute
+              path={"/chef-mode"}
+              component={ChefModePage}
+            />
+
+            <PrivateRoute
+              path={"/group"}
+              component={GroupPage}
+            />
+
+            <PrivateRoute
               path={"/restaurants/:restaurant_id"}
               component={RestaurantPage}
             />
 
-
-            <Route
+            <PrivateRoute
               path={"/search"}
               component={RestaurantSearchPage}
             />
 
-            <Route
+            <PrivateRoute
               path={"/start-group"}
               component={StartGroupPage}
             />
