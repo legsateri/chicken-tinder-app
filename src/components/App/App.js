@@ -11,6 +11,7 @@ import ChefModePage from '../../routes/ChefModePage/ChefModePage';
 import GroupPage from '../../routes/GroupPage/GroupPage'
 import Homepage from '../../routes/Homepage/Homepage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
 import RestaurantSearchPage from '../../routes/RestaurantSearchPage/RestaurantSearchPage';
 import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
@@ -48,6 +49,10 @@ class App extends Component {
               exact
               path={"/"}
               component={Homepage}
+            />
+
+            <Route
+              component={NotFoundPage}
             />
 
             <PublicOnlyRoute
