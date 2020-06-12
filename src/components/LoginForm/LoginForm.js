@@ -1,22 +1,67 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+////////////////////////////////////////////////////////////////////////////////
+import AuthApiService from '../../services/AuthApiService';
+import TokenService from '../../services/TokenService';
 ////////////////////////////////////////////////////////////////////////////////
 import './LoginForm.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 class LoginForm extends Component {
+    static defaultProps = {
+        onLoginSuccess: () => { }
+    }
+
+    state = {
+        error: null,
+        loading: null,
+    }
+
+    handleSubmitJwtAuth = e => {
+        e.preventDefault()
+        this.setState({
+            error: null,
+            loading: true
+        })
+
+        const { email, password } = e.target
+
+        AuthApiService.postLogin({
+            email: email.value,
+            password: password.value
+        })
+            .then(res => {
+                email.value = ""
+                password.value = ""
+                TokenService.saveAuthToken(res.authToken)
+                this.props.onLoginSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+                this.setState({ loading: false })
+            })
+            .then(() => {
+                window.location.reload(false)
+            })
+    }
+
     render() {
+        const { error, loading } = this.state
+
         return (
             <>
-                <form className="login_form">
+                <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
+                    <div role="alert">
+                        {error && <p>{error}</p>}
+                    </div>
+
                     <input placeholder=" EMAIL" type="text" name="email" id="email" className="input_field" />
                     <br />
 
-                    <input  placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
+                    <input placeholder=" PASSWORD" type="password" name="password" id="password" className="input_field" />
                     <br />
-                    
-                    <Link to ="/account"><button type="submit" className="submit_button">LOGIN</button></Link>
+
+                    <button type="submit" className="submit_button">LOGIN</button>
                 </form>
             </>
         )

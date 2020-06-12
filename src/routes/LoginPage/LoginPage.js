@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
@@ -8,12 +8,13 @@ import './LoginPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 class LoginPage extends Component {
-    constructor () {
+    constructor() {
         super()
         this.state = {
             form: 'login'
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSignupSuccess = this.handleSignupSuccess.bind(this)
     };
 
     handleChange(event) {
@@ -22,18 +23,43 @@ class LoginPage extends Component {
         })
     }
 
+    static defaultProps = {
+        location: {},
+        history: {
+            push: () => { },
+            goBack: () => { }
+        },
+        checkForLogin: () => { }
+    }
+
+    handleSignupSuccess = () => {
+        const success = []
+        success.push(<>Success! You can now login.</>)
+    }
+
+    handleLoginSuccess = () => {
+        const {location, history} = this.props
+        const destination = (location.state || {}).from | "/account"
+        history.push(destination)
+        this.props.checkForLogin()
+    }
+
     render() {
         let formOutput;
 
         if (this.state.form === "login") {
-            formOutput = 
+            formOutput =
                 <>
-                    <LoginForm />
+                    <LoginForm 
+                        onLoginSuccess = {this.handleLoginSuccess}
+                    />
                 </>
         } else {
-            formOutput = 
+            formOutput =
                 <>
-                    <SignupForm />
+                    <SignupForm 
+                        onSignupSuccess={this.handleSignupSuccess}
+                    />
                 </>
         }
 
@@ -46,7 +72,7 @@ class LoginPage extends Component {
                         <form className="radio_form">
                             <div className="radio login_radio">
                                 <label className="radio_label">
-                                    <input 
+                                    <input
                                         type="radio"
                                         value="login"
                                         checked={this.state.form === "login"}
@@ -59,7 +85,7 @@ class LoginPage extends Component {
 
                             <div className="radio">
                                 <label className="radio_label">
-                                    <input 
+                                    <input
                                         type="radio"
                                         value="signup"
                                         checked={this.state.form === "signup"}
