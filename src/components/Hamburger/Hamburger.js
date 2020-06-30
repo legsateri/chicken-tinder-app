@@ -3,8 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 ////////////////////////////////////////////////////////////////////////////////
-import TokenService from '../../services/TokenService';
-////////////////////////////////////////////////////////////////////////////////
 
 export default props => {
     return (

@@ -18,6 +18,6 @@ const TokenService = {
     hasAuthToken() {
         return !!TokenService.getAuthToken()
     }
-}
+};
 
 export default TokenService;

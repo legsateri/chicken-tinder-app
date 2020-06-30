@@ -7,6 +7,14 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import './LoginPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
+/* Signup/Login Errors
+    >   Confirmed signup is working on Heroku server via Postman.
+        >   FIXME: Not able to signup through the site. Soemthing is breaking down 
+            but have not isolated what.
+    >   Was able to login with the credentials created via Postman.
+        >   FIXME: Once logged in get an error that says "Hamburger.js:15 Uncaught 
+            TypeError: Cannot read property 'handleLogout' of undefined" */
+
 class LoginPage extends Component {
     constructor() {
         super()
@@ -27,7 +35,7 @@ class LoginPage extends Component {
         location: {},
         history: {
             push: () => { },
-            goBack: () => { }
+            goBack: () => { },
         },
         checkForLogin: () => { }
     }
@@ -38,8 +46,8 @@ class LoginPage extends Component {
     }
 
     handleLoginSuccess = () => {
-        const {location, history} = this.props
-        const destination = (location.state || {}).from | "/account"
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/account'
         history.push(destination)
         this.props.checkForLogin()
     }
@@ -47,17 +55,17 @@ class LoginPage extends Component {
     render() {
         let formOutput;
 
-        if (this.state.form === "login") {
+        if (this.state.form === 'login') {
             formOutput =
                 <>
-                    <LoginForm 
-                        onLoginSuccess = {this.handleLoginSuccess}
+                    <LoginForm
+                        onLoginSuccess={this.handleLoginSuccess}
                     />
                 </>
         } else {
             formOutput =
                 <>
-                    <SignupForm 
+                    <SignupForm
                         onSignupSuccess={this.handleSignupSuccess}
                     />
                 </>
@@ -75,7 +83,7 @@ class LoginPage extends Component {
                                     <input
                                         type="radio"
                                         value="login"
-                                        checked={this.state.form === "login"}
+                                        checked={this.state.form === 'login'}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />
@@ -88,7 +96,7 @@ class LoginPage extends Component {
                                     <input
                                         type="radio"
                                         value="signup"
-                                        checked={this.state.form === "signup"}
+                                        checked={this.state.form === 'signup'}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />

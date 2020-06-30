@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div id="App">
         <header className="app">
-          <Navigation checkForLogin={this.checkForLogin} />
+          <Navigation checkforLogin={this.checkforLogin} hasLogin={this.state.hasLogin} />
         </header>
 
         <main id="page_wrap">
@@ -49,10 +49,6 @@ class App extends Component {
               exact
               path={"/"}
               component={Homepage}
-            />
-
-            <Route
-              component={NotFoundPage}
             />
 
             <PublicOnlyRoute
@@ -99,6 +95,10 @@ class App extends Component {
             <PrivateRoute
               path={"/start-group"}
               component={StartGroupPage}
+            />
+
+            <Route
+              component={NotFoundPage}
             />
           </Switch>
         </main>

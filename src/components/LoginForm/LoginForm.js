@@ -10,18 +10,16 @@ import './LoginForm.css';
 class LoginForm extends Component {
     static defaultProps = {
         onLoginSuccess: () => { }
-    }
+    };
 
     state = {
-        error: null,
-        loading: null,
-    }
+        error: null
+    };
 
     handleSubmitJwtAuth = e => {
         e.preventDefault()
         this.setState({
-            error: null,
-            loading: true
+            error: null
         })
 
         const { email, password } = e.target
@@ -31,27 +29,26 @@ class LoginForm extends Component {
             password: password.value
         })
             .then(res => {
-                email.value = ""
-                password.value = ""
+                email.value = ''
+                password.value = ''
                 TokenService.saveAuthToken(res.authToken)
                 this.props.onLoginSuccess()
             })
             .catch(res => {
                 this.setState({ error: res.error })
-                this.setState({ loading: false })
             })
             .then(() => {
                 window.location.reload(false)
             })
-    }
+    };
 
     render() {
-        const { error, loading } = this.state
+        const { error } = this.state
 
         return (
             <>
                 <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
-                    <div role="alert">
+                    <div role='alert'>
                         {error && <p>{error}</p>}
                     </div>
 
