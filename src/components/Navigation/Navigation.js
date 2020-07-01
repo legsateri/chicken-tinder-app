@@ -26,7 +26,7 @@ class Navigation extends Component {
                     <Link to="/"><p>[Logo]</p></Link>
 
                     <div id="menu" className="right_justify">
-                        <Link to="/login"><p>Login</p></Link>
+                        <Link to="/login"><p className="login">Login</p></Link>
                     </div>
                 </div>
         )
@@ -38,7 +38,7 @@ class Navigation extends Component {
                     <Link to="/"><p>[Logo]</p></Link>
 
                     <div id="menu" className="right_justify">
-                        <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} />
+                        <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} handleLogout={this.handleLogout} />
                     </div>
                 </div>
         )

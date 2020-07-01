@@ -10,10 +10,7 @@ import './LoginPage.css';
 /* Signup/Login Errors
     >   Confirmed signup is working on Heroku server via Postman.
         >   FIXME: Not able to signup through the site. Soemthing is breaking down 
-            but have not isolated what.
-    >   Was able to login with the credentials created via Postman.
-        >   FIXME: Once logged in get an error that says "Hamburger.js:15 Uncaught 
-            TypeError: Cannot read property 'handleLogout' of undefined" */
+            but have not isolated what. */
 
 class LoginPage extends Component {
     constructor() {
