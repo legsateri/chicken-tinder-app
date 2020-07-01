@@ -1,11 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import RecipeZipsearch from '../../components/RecipeZipSearch/RecipeZipSearch';
+import RecipeZipsearch from "../../components/RecipeZipSearch/RecipeZipSearch";
 ////////////////////////////////////////////////////////////////////////////////
-import config from '../../config';
+import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
-import './ChefModePage.css';
+import "./ChefModePage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class ChefModePage extends Component {
@@ -151,7 +151,7 @@ class ChefModePage extends Component {
                 <main id="page_wrap">
                     <header className="header spacing">
                         <h1>Chef Mode</h1>
-                        <p>Enter your zip and we'll suggest recipes based on the local weather.</p>
+                        <p>Enter your zip and we"ll suggest recipes based on the local weather.</p>
                     </header>
 
                     <RecipeZipsearch handleSearchSubmit={this.handleSearchSubmit} />

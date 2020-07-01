@@ -1,17 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
-import AuthApiService from '../../services/AuthApiService';
+import AuthApiService from "../../services/AuthApiService";
 ////////////////////////////////////////////////////////////////////////////////
-import './SignupForm.css';
+import "./SignupForm.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class SignupForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            successMessage: ''
+            successMessage: ""
         }
     }
 
@@ -33,11 +33,11 @@ class SignupForm extends Component {
             password: password.value
         })
             .then(user => {
-                full_name.value = ''
-                email.value = ''
-                password.value = ''
+                full_name.value = ""
+                email.value = ""
+                password.value = ""
                 this.props.onSignUpSuccess()
-                this.setState({ successMessage: 'Success! You can now login.' })
+                this.setState({ successMessage: "Success! You can now login." })
             })
             .catch(res => {
                 this.setState({ error: res.error })

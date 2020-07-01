@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
-import './AccountPage.css';
+import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class AccountPage extends Component {
@@ -29,7 +29,7 @@ class AccountPage extends Component {
                         <h2 className="subhead">Past Matches</h2>
                         <ul className="list">
                             <li className="list_item">The Macaroni and Cheese Factory</li>
-                            <li className="list_item">Formento's Italian Restaurant</li>
+                            <li className="list_item">Formento"s Italian Restaurant</li>
                             <li className="list_item">Au Cheval</li>
                             <li className="list_item">Duck Duck Goat</li>
                             <li className="list_item">Parachute</li> 

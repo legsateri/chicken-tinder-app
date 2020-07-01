@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
 class RecipeZipSearch extends Component {
     state = {
-        searchInput: ''
+        searchInput: ""
     }
 
     handleSearchInput = (searchEvent) => {

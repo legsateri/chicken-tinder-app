@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import './RestaurantZipSearchBar.css';
+import "./RestaurantZipSearchBar.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /* TODO: Thinking maybe the restaurants in the list should have a tally that updates so you can view 
@@ -10,7 +10,7 @@ is built and login functionality is working. */
 
 class RestaurantZipSearchBar extends Component {
     state = {
-        searchInput: ''
+        searchInput: ""
     }
 
     handleSearchInput = (searchEvent) => {

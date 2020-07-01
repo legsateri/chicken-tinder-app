@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import ChatListItem from '../../components/ChatListItem/ChatListItem';
-import ChatSearch from '../../components/ChatSearch/ChatSearch';
+import ChatListItem from "../../components/ChatListItem/ChatListItem";
+import ChatSearch from "../../components/ChatSearch/ChatSearch";
 ////////////////////////////////////////////////////////////////////////////////
-import './ChatListPage.css';
+import "./ChatListPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class ChatListPage extends Component {

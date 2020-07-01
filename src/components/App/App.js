@@ -1,25 +1,25 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
-import Navigation from '../Navigation/Navigation';
+import Navigation from "../Navigation/Navigation";
 ////////////////////////////////////////////////////////////////////////////////
-import AccountPage from '../../routes/AccountPage/AccountPage';
-import ChatListPage from '../../routes/ChatListPage/ChatListPage';
-import ChatPage from '../../routes/ChatPage/ChatPage';
-import ChefModePage from '../../routes/ChefModePage/ChefModePage';
-import GroupPage from '../../routes/GroupPage/GroupPage'
-import Homepage from '../../routes/Homepage/Homepage';
-import LoginPage from '../../routes/LoginPage/LoginPage';
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
-import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
-import RestaurantSearchPage from '../../routes/RestaurantSearchPage/RestaurantSearchPage';
-import StartGroupPage from '../../routes/StartGroupPage/StartGroupPage';
+import AccountPage from "../../routes/AccountPage/AccountPage";
+import ChatListPage from "../../routes/ChatListPage/ChatListPage";
+import ChatPage from "../../routes/ChatPage/ChatPage";
+import ChefModePage from "../../routes/ChefModePage/ChefModePage";
+import GroupPage from "../../routes/GroupPage/GroupPage"
+import Homepage from "../../routes/Homepage/Homepage";
+import LoginPage from "../../routes/LoginPage/LoginPage";
+import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
+import RestaurantPage from "../../routes/RestaurantPage/RestaurantPage";
+import RestaurantSearchPage from "../../routes/RestaurantSearchPage/RestaurantSearchPage";
+import StartGroupPage from "../../routes/StartGroupPage/StartGroupPage";
 ////////////////////////////////////////////////////////////////////////////////
-import TokenService from '../../services/TokenService';
+import TokenService from "../../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
-import PrivateRoute from '../../utils/PrivateRoute';
-import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
+import PrivateRoute from "../../utils/PrivateRoute";
+import PublicOnlyRoute from "../../utils/PublicOnlyRoute";
 ////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {

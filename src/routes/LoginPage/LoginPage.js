@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import SignupForm from '../../components/SignupForm/SignupForm';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import SignupForm from "../../components/SignupForm/SignupForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
 ////////////////////////////////////////////////////////////////////////////////
-import './LoginPage.css';
+import "./LoginPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /* Signup/Login Errors
@@ -16,7 +16,7 @@ class LoginPage extends Component {
     constructor() {
         super()
         this.state = {
-            form: 'login'
+            form: "login"
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSignupSuccess = this.handleSignupSuccess.bind(this)
@@ -44,7 +44,7 @@ class LoginPage extends Component {
 
     handleLoginSuccess = () => {
         const { location, history } = this.props
-        const destination = (location.state || {}).from || '/account'
+        const destination = (location.state || {}).from || "/account"
         history.push(destination)
         this.props.checkForLogin()
     }
@@ -52,7 +52,7 @@ class LoginPage extends Component {
     render() {
         let formOutput;
 
-        if (this.state.form === 'login') {
+        if (this.state.form === "login") {
             formOutput =
                 <>
                     <LoginForm
@@ -80,7 +80,7 @@ class LoginPage extends Component {
                                     <input
                                         type="radio"
                                         value="login"
-                                        checked={this.state.form === 'login'}
+                                        checked={this.state.form === "login"}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />
@@ -93,7 +93,7 @@ class LoginPage extends Component {
                                     <input
                                         type="radio"
                                         value="signup"
-                                        checked={this.state.form === 'signup'}
+                                        checked={this.state.form === "signup"}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />

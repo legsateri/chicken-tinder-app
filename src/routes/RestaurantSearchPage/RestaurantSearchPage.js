@@ -1,11 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import RestaurantZipSearchBar from '../../components/RestaurantZipSearchBar/RestaurantZipSearchBar';
+import RestaurantZipSearchBar from "../../components/RestaurantZipSearchBar/RestaurantZipSearchBar";
 ////////////////////////////////////////////////////////////////////////////////
-import config from '../../config';
+import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
-import './RestaurantSearchPage.css';
+import "./RestaurantSearchPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class RestaurantSearchPage extends Component {
@@ -53,11 +53,11 @@ class RestaurantSearchPage extends Component {
 
     formatQuery = (baseUrl, searchInput, key) => {
         let formattedQuery;
-        if (searchInput !== '') {
+        if (searchInput !== "") {
             formattedQuery = searchInput;
         }
 
-        const formattedUrl = baseUrl + formattedQuery + '&key=' + key;
+        const formattedUrl = baseUrl + formattedQuery + "&key=" + key;
 
         return formattedUrl;
     }

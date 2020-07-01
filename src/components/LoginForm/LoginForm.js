@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
-import AuthApiService from '../../services/AuthApiService';
-import TokenService from '../../services/TokenService';
+import AuthApiService from "../../services/AuthApiService";
+import TokenService from "../../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
-import './LoginForm.css';
+import "./LoginForm.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class LoginForm extends Component {
@@ -29,8 +29,8 @@ class LoginForm extends Component {
             password: password.value
         })
             .then(res => {
-                email.value = ''
-                password.value = ''
+                email.value = ""
+                password.value = ""
                 TokenService.saveAuthToken(res.authToken)
                 this.props.onLoginSuccess()
             })
@@ -48,7 +48,7 @@ class LoginForm extends Component {
         return (
             <>
                 <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
-                    <div role='alert'>
+                    <div role="alert">
                         {error && <p>{error}</p>}
                     </div>
 
