@@ -23,17 +23,19 @@ class SignupForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { full_name, email, password } = e.target
+        const { first_name, last_name, email, password } = e.target
 
         this.setState({ error: null })
 
         AuthApiService.postUser({
-            full_name: full_name.value,
+            first_name: first_name.value,
+            last_name: last_name.value,
             email: email.value,
             password: password.value
         })
             .then(user => {
-                full_name.value = ""
+                first_name.value = ""
+                last_name.value = ""
                 email.value = ""
                 password.value = ""
                 this.props.onSignUpSuccess()
@@ -42,6 +44,8 @@ class SignupForm extends Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
+        console.log(this.state.successMessage)
+        console.log(this.state.error)
     }
     
     render() {
@@ -59,7 +63,7 @@ class SignupForm extends Component {
                     <div className="flex">
                         <input placeholder=" FIRST NAME" type="text" name="first_name" id="first_name" className="input_field" />
                         <br />
-                        <input placeholder=" LAST NAME" type="text" name="last_name-name" id="last_name" className="input_field" />
+                        <input placeholder=" LAST NAME" type="text" name="last_name" id="last_name" className="input_field" />
                         <br />
                     </div>
 
