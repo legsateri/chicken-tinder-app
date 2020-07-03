@@ -4,6 +4,8 @@ import { Route, Switch } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from "../Navigation/Navigation";
 ////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from "../../contexts/RestaurantContext";
+////////////////////////////////////////////////////////////////////////////////
 import AccountPage from "../../routes/AccountPage/AccountPage";
 import ChatListPage from "../../routes/ChatListPage/ChatListPage";
 import ChatPage from "../../routes/ChatPage/ChatPage";
@@ -23,6 +25,8 @@ import PublicOnlyRoute from "../../utils/PublicOnlyRoute";
 ////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
+  static contextType = RestaurantContext;
+
   constructor(props) {
     super(props)
     this.state = {
