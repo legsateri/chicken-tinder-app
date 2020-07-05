@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 import { Link } from "react-router-dom";
-import ChatListItem from "../../components/ChatListItem/ChatListItem"
+import ChatListItem from "../../components/ChatListItem/ChatListItem";
 ////////////////////////////////////////////////////////////////////////////////
 import "./GroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,8 +33,8 @@ class GroupPage extends Component {
                     <Link to="/search"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default GroupPage;

@@ -19,8 +19,8 @@ class ChatListItem extends Component {
                     </div>
                 </Link>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default ChatListItem;

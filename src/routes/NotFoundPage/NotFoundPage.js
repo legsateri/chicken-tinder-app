@@ -10,8 +10,8 @@ class NotFoundPage extends Component {
                     <p>The deliciousness you're looking for doesn't exist. Try going back, or clicking one of the options in the nav.</p>
                 </header>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default NotFoundPage;

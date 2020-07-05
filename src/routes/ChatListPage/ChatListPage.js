@@ -32,8 +32,8 @@ class ChatListPage extends Component {
 
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default ChatListPage;

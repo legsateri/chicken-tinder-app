@@ -11,8 +11,8 @@ class EwButton extends Component {
             <>
                 <Link to="/restaurants/:restaurant_id"><div className="ew_circle">EW!</div></Link>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default EwButton;

@@ -15,6 +15,6 @@ export default class Hamburger extends Component {
                 <Link to="/account"><p>Account</p></Link>
                 <Link onClick={this.props.handleLogout} to="/"><p>Logout</p></Link>
             </Menu>
-        )
-    }
-}
+        );
+    };
+};

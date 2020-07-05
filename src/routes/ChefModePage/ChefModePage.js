@@ -19,8 +19,8 @@ class ChefModePage extends Component {
             recipes: [],
             recipeError: [],
         }
-        this.handleRecipeQuery = this.handleRecipeQuery.bind(this)
-    }
+        this.handleRecipeQuery = this.handleRecipeQuery.bind(this);
+    };
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
         searchSubmitEvent.preventDefault();
@@ -55,14 +55,14 @@ class ChefModePage extends Component {
                     weatherError: weatherError.message
                 });
             });
-    }
+    };
 
     formatWeatherQuery = (baseWeatherUrl, searchInput, weatherKey) => {
         let formattedWeatherQuery;
 
         if (searchInput !== "") {
             formattedWeatherQuery = "?q=" + searchInput
-        }
+        };
 
         const formattedWeatherUrl = baseWeatherUrl + formattedWeatherQuery + "&key=" + weatherKey;
         return formattedWeatherUrl;
@@ -79,14 +79,14 @@ class ChefModePage extends Component {
             recipeSearchInput = "fall"
         } else {
             recipeSearchInput = "winter"
-        }
+        };
 
         this.setState({
             recipeQuery: recipeSearchInput
         });
 
-        console.log(this.state.recipeQuery)
-    }
+        console.log(this.state.recipeQuery);
+    };
 
     formatReceipeQuery = (baseRecipeUrl, recipeKey, recipeId) => {
         let recipeInput = this.state.recipeQuery;
@@ -95,11 +95,11 @@ class ChefModePage extends Component {
 
         if (recipeInput !== "") {
             formattedRecipeQuery = "?q=" + recipeInput
-        }
+        };
 
         const formattedRecipeUrl = baseRecipeUrl + formattedRecipeQuery + "&app_key=" + recipeKey + "&app_id=" + recipeId;
         return formattedRecipeUrl;
-    }
+    };
 
     handleRecipeFetch = () => {
         const baseRecipeUrl = `https://cors-anywhere.herokuapp.com/${config.RECIPE_ENDPOINT}`;
@@ -110,25 +110,25 @@ class ChefModePage extends Component {
         fetch(formattedRecipeUrl)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Something went wrong. Please try again later.");
-                }
+                    throw new Error("Something went wrong. Please try again later.")
+                };
                 return response;
             })
             .then(response => response.json())
             .then(data => {
-                console.log("Good response from Recipe API.")
+                console.log("Good response from Recipe API.");
                 this.setState({
                     recipes: data.hits,
                     recipeError: null
                 });
-                console.log(this.state.recipes)
+                console.log(this.state.recipes);
             })
             .catch(recipeError => {
                 this.setState({
                     recipeError: recipeError.message
                 });
             });
-    }
+    };
 
     render() {
         let listOfRecipes = [];
@@ -142,9 +142,9 @@ class ChefModePage extends Component {
                             <h2 className="recipe_name"><a href={this.state.recipes[i].recipe.url} target="_blank" rel="noopener noreferrer">{this.state.recipes[i].recipe.label}</a></h2>
                         </div>
                     </li>
-                )
-            }
-        }
+                );
+            };
+        };
 
         return (
             <>
@@ -158,8 +158,8 @@ class ChefModePage extends Component {
                     <ul className="list">{listOfRecipes}</ul>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default ChefModePage;

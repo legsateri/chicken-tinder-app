@@ -21,7 +21,7 @@ class LoginPage extends Component {
         this.setState({
             form: event.target.value
         })
-    }
+    };
 
     static defaultProps = {
         location: {},
@@ -30,19 +30,19 @@ class LoginPage extends Component {
             goBack: () => { },
         },
         checkForLogin: () => { }
-    }
+    };
 
     handleSignupSuccess = () => {
-        const success = []
-        success.push(<>Success! You can now login.</>)
-    }
+        const success = [];
+        success.push(<>Success! You can now login.</>);
+    };
 
     handleLoginSuccess = () => {
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || "/account"
-        history.push(destination)
-        this.props.checkForLogin()
-    }
+        const { location, history } = this.props;
+        const destination = (location.state || {}).from || "/account";
+        history.push(destination);
+        this.props.checkForLogin();
+    };
 
     render() {
         let formOutput;
@@ -61,7 +61,7 @@ class LoginPage extends Component {
                         onSignupSuccess={this.handleSignupSuccess}
                     />
                 </>
-        }
+        };
 
         return (
             <>
@@ -104,8 +104,8 @@ class LoginPage extends Component {
                     </div>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default LoginPage;

@@ -8,4 +8,4 @@ export default {
     RECIPE_ID: "0bc5a132",
     API_ENDPOINT: "https://lit-lowlands-58882.herokuapp.com/api",
     TOKEN_KEY: "chicken-tender-client-auth-token"
-}
+};

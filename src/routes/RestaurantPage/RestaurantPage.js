@@ -24,8 +24,8 @@ class RestaurantPage extends Component {
                     </div>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default RestaurantPage;

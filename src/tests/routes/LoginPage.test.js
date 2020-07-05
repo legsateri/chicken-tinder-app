@@ -7,12 +7,14 @@ import LoginPage from "../../routes/LoginPage/LoginPage";
 ////////////////////////////////////////////////////////////////////////////////
 
 it("render without crashing", () => {
-    const div = document.createElement("div")
+    const div = document.createElement("div");
+
     ReactDOM.render(
         <BrowserRouter>
             <LoginPage />
         </BrowserRouter>,
         div
-    )
-    ReactDOM.unmountComponentAtNode(div)
-})
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+});

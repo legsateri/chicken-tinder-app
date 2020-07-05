@@ -12,8 +12,8 @@ class ChatSearch extends Component {
                     <input placeholder=" SEARCH" type="text" name="search" id="search" className="input_field" />
                 </form>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default ChatSearch;

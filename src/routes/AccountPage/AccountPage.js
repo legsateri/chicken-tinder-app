@@ -45,8 +45,8 @@ class AccountPage extends Component {
                     </div>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default AccountPage;

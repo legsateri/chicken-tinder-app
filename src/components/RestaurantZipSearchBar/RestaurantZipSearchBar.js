@@ -11,13 +11,13 @@ is built and login functionality is working. */
 class RestaurantZipSearchBar extends Component {
     state = {
         searchInput: ""
-    }
+    };
 
     handleSearchInput = (searchEvent) => {
         this.setState({
             searchInput: searchEvent.target.value
         });
-    }
+    };
 
     render() {
         const { handleSearchSubmit } = this.props;
@@ -41,7 +41,7 @@ class RestaurantZipSearchBar extends Component {
                 </div>
             </>
         );
-    }
-}
+    };
+};
 
 export default RestaurantZipSearchBar;

@@ -15,8 +15,8 @@ class RestaurantSearchPage extends Component {
             restaurants: [],
             searchQuery: "60618",
             error: []
-        }
-    }
+        };
+    };
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
         searchSubmitEvent.preventDefault();
@@ -49,18 +49,18 @@ class RestaurantSearchPage extends Component {
                     error: error.message
                 });
             });
-    }
+    };
 
     formatQuery = (baseUrl, searchInput, key) => {
         let formattedQuery;
         if (searchInput !== "") {
             formattedQuery = searchInput;
-        }
+        };
 
         const formattedUrl = baseUrl + formattedQuery + "&key=" + key;
 
         return formattedUrl;
-    }
+    };
 
     render() {
         let listOfRestaurants = [];
@@ -74,9 +74,9 @@ class RestaurantSearchPage extends Component {
                             <p>{this.state.restaurants[i].formatted_address}</p>
                         </div>
                     </li>
-                )
-            }
-        }
+                );
+            };
+        };
 
         return (
             <>
@@ -90,8 +90,8 @@ class RestaurantSearchPage extends Component {
                     <ul className="list">{listOfRestaurants}</ul>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default RestaurantSearchPage;

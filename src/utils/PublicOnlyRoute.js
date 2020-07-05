@@ -6,7 +6,7 @@ import TokenService from "../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
 
 export default function PublicOnlyRoute({ component, ...props }) {
-    const Component = component
+    const Component = component;
 
     return (
         <Route
@@ -18,4 +18,4 @@ export default function PublicOnlyRoute({ component, ...props }) {
             )}
         />
     )
-}
+};

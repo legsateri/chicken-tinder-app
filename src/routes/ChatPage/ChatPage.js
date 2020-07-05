@@ -9,7 +9,7 @@ class ChatPage extends Component {
         history: {
             push: () => { }
         }
-    }
+    };
 
     render() {
         return (
@@ -30,8 +30,8 @@ class ChatPage extends Component {
 
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default ChatPage;

@@ -17,12 +17,12 @@ class LoginForm extends Component {
     };
 
     handleSubmitJwtAuth = e => {
-        e.preventDefault()
+        e.preventDefault();
         this.setState({
             error: null
-        })
+        });
 
-        const { email, password } = e.target
+        const { email, password } = e.target;
 
         AuthApiService.postLogin({
             email: email.value,
@@ -31,19 +31,19 @@ class LoginForm extends Component {
             .then(res => {
                 email.value = ""
                 password.value = ""
-                TokenService.saveAuthToken(res.authToken)
-                this.props.onLoginSuccess()
+                TokenService.saveAuthToken(res.authToken);
+                this.props.onLoginSuccess();
             })
             .catch(res => {
-                this.setState({ error: res.error })
+                this.setState({ error: res.error });
             })
             .then(() => {
-                window.location.reload(false)
-            })
+                window.location.reload(false);
+            });
     };
 
     render() {
-        const { error } = this.state
+        const { error } = this.state;
 
         return (
             <>
@@ -61,8 +61,8 @@ class LoginForm extends Component {
                     <button type="submit" className="submit_button">LOGIN</button>
                 </form>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default LoginForm;

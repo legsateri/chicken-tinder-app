@@ -5,13 +5,13 @@ import React, { Component } from "react";
 class RecipeZipSearch extends Component {
     state = {
         searchInput: ""
-    }
+    };
 
     handleSearchInput = (searchEvent) => {
         this.setState({
             searchInput: searchEvent.target.value
         });
-    }
+    };
 
     render() {
         const { handleSearchSubmit } = this.props;
@@ -35,7 +35,7 @@ class RecipeZipSearch extends Component {
                 </div>
             </>
         );
-    }
-}
+    };
+};
 
 export default RecipeZipSearch;

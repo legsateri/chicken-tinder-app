@@ -6,11 +6,10 @@
         margin-right: auto;
         margin-left: auto;
     }
-
     img {
         width: 300px;
-    };
-
+    }
+    ;
     .recipe_name {
         margin-top: 50px;
     }
@@ -22,9 +21,8 @@
         padding-top: 75px;
         padding-bottom: 75px;
     }
-
     img {
         width: 500px;
-    };
-
+    }
+    ;
 }

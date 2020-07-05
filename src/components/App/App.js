@@ -31,14 +31,14 @@ class App extends Component {
     super(props)
     this.state = {
       hasLogin: TokenService.hasAuthToken()
-    }
-  }
+    };
+  };
 
   checkForLogin = () => {
     this.setState({
       hasLogin: TokenService.hasAuthToken()
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -107,8 +107,8 @@ class App extends Component {
           </Switch>
         </main>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default App;

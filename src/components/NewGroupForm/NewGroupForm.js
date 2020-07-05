@@ -29,8 +29,8 @@ class NewGroupForm extends Component {
                     <Link to="/group"><button type="submit" className="submit_button">START GROUP</button></Link>
                 </form>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default NewGroupForm;

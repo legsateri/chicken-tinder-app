@@ -3,7 +3,7 @@ import React, {Component} from "react";
 ////////////////////////////////////////////////////////////////////////////////
 import NewGroupForm from "../../components/NewGroupForm/NewGroupForm";
 ////////////////////////////////////////////////////////////////////////////////
-import "./StartGroupPage.css"
+import "./StartGroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class StartGroupPage extends Component {
@@ -21,8 +21,8 @@ class StartGroupPage extends Component {
                     </div>
                 </main>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default StartGroupPage;

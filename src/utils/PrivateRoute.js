@@ -6,7 +6,7 @@ import TokenService from "../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
 
 export default function PrivateRoute({ component, ...props }) {
-    const Component = component
+    const Component = component;
 
     return (
         <Route
@@ -21,5 +21,5 @@ export default function PrivateRoute({ component, ...props }) {
                         }} />
             )}
         />
-    )
-}
+    );
+};

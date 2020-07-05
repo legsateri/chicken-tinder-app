@@ -8,11 +8,13 @@ import App from "../../components/App/App";
 
 it("render without crashing", () => {
     const div = document.createElement("div");
+
     ReactDOM.render(
         <BrowserRouter>
             <App />
         </BrowserRouter>,
         div
-    )
+    );
+
     ReactDOM.unmountComponentAtNode(div);
-})
+});

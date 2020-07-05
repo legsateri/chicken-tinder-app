@@ -7,12 +7,14 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 ////////////////////////////////////////////////////////////////////////////////
 
 it("render without crashing", () => {
-    const div = document.createElement("div")
+    const div = document.createElement("div");
+
     ReactDOM.render(
         <BrowserRouter>
             <LoginForm />
         </BrowserRouter>,
         div
-    )
+    );
+    
     ReactDOM.unmountComponentAtNode(div);
 });

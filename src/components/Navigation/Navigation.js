@@ -15,10 +15,10 @@ class Navigation extends Component {
     };
 
     handleLogout = () => {
-        TokenService.clearAuthToken()
-        this.props.checkForLogin()
-        window.location.reload(false)
-    }
+        TokenService.clearAuthToken();
+        this.props.checkForLogin();
+        window.location.reload(false);
+    };
 
     renderPublicLinks() {
         return (
@@ -29,8 +29,8 @@ class Navigation extends Component {
                         <Link to="/login"><p className="login">Login</p></Link>
                     </div>
                 </div>
-        )
-    }
+        );
+    };
 
     renderPrivateLinks() {
         return (
@@ -41,11 +41,11 @@ class Navigation extends Component {
                         <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} handleLogout={this.handleLogout} />
                     </div>
                 </div>
-        )
-    }
+        );
+    };
 
     render() {
-        const { hasLogin } = this.props
+        const { hasLogin } = this.props;
 
         return (
             <>
@@ -55,8 +55,8 @@ class Navigation extends Component {
                         : this.renderPublicLinks()}
                 </nav>
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 export default Navigation;
