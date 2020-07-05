@@ -7,11 +7,6 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import "./LoginPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Signup/Login Errors
-    >   Confirmed signup is working on Heroku server via Postman.
-        >   FIXME: Not able to signup through the site. Soemthing is breaking down 
-            but have not isolated what. */
-
 class LoginPage extends Component {
     constructor() {
         super()
