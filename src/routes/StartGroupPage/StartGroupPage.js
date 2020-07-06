@@ -1,12 +1,32 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, {Component} from "react";
+import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 import NewGroupForm from "../../components/NewGroupForm/NewGroupForm";
+////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
 import "./StartGroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 class StartGroupPage extends Component {
+    static defaultProps = {
+        match: { params: {} },
+        history: {
+            push: () => { }
+        }
+    };
+
+    static contextType = RestaurantContext;
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    };
+
+    handleCreateSuccess = createClub => {
+        this.setState({ groups: this.groups });
+        this.props.history.push(`/account`);
+    };
+
     render() {
         return (
             <>
@@ -17,7 +37,9 @@ class StartGroupPage extends Component {
                     </header>
 
                     <div className="form_output">
-                        <NewGroupForm />
+                        <NewGroupForm
+                            onCreateSuccess={this.handleCreateSuccess}
+                        />
                     </div>
                 </main>
             </>
