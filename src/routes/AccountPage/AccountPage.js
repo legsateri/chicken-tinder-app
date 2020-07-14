@@ -14,6 +14,7 @@ class AccountPage extends Component {
                         <h1>Hi, Allegra!</h1>
                     </header>
 
+                    {/* FIXME: Only display groups user is a part of. */}
                     <div className="groups_box">
                         <h2 className="subhead">My Groups</h2>
                         <ul className="list">
