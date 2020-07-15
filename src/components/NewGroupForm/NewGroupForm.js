@@ -17,16 +17,11 @@ class NewGroupForm extends Component {
 
     state = {
         error: null,
-        member_two: "",
-        member_three: ""
+        member_two: ""
     };
 
     handleChangeMemberTwo = e => {
         this.setState({ member_two: e.target.value });
-    };
-
-    handleChangeMemberThree = e => {
-        this.setState({ member_three: e.target.value });
     };
 
     handleSubmit = e => {
@@ -36,8 +31,7 @@ class NewGroupForm extends Component {
 
         const group = {
             group_id: groupId,
-            member_two: this.state.member_two,
-            member_three: this.state.member_three
+            member_two: this.state.member_two
         };
 
         GroupApiService.postGroup(group)
@@ -62,16 +56,6 @@ class NewGroupForm extends Component {
                         name="member_two"
                         onChange={this.handleChangeMemberTwo}
                         required
-                    />
-                    <br />
-
-                    <input
-                        placeholder=" ADD MEMBER (Optional)"
-                        className="input_field"
-                        type="text"
-                        id="member_three"
-                        name="member_three"
-                        onChange={this.handleChangeMemberThree}
                     />
                     <br />
 
