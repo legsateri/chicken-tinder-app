@@ -33,8 +33,8 @@ export class RestaurantProvider extends Component {
         this.setState({ error: null })
     };
 
-    setGroup = group => {
-        this.setState({ group })
+    setGroup = groups => {
+        this.setState({ groups })
     };
 
     clearGroup = () => {
