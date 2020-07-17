@@ -66,13 +66,12 @@ class AccountPage extends Component {
         console.log(userEmail);
         const userGroups = [];
 
-        // FIXME: Add go button functionality
         for (let i = 0; i < groups.length; i++) {
             if (userEmail === groups[i].member_one) {
                 userGroups.push(
                     <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_two}
                         <br />
-                        <Link to="/group"><button type="submit" className="go_button go">GO</button></Link>
+                        <Link to={`/group/${groups[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
                         <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );
@@ -80,7 +79,7 @@ class AccountPage extends Component {
                 userGroups.push(
                     <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_one} {groups[i].last_name}
                         <br />
-                        <Link to="/group"><button type="submit" className="go_button go">GO</button></Link>
+                        <Link to={`/group/${groups[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
                         <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );

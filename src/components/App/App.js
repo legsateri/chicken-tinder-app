@@ -82,7 +82,7 @@ class App extends Component {
             />
 
             <PrivateRoute
-              path={"/group"}
+              path={"/group/:group_id"}
               component={GroupPage}
             />
 
