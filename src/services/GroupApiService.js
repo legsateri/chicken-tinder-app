@@ -13,10 +13,10 @@ const GroupApiService = {
                 "authorization": `bearer ${TokenService.getAuthToken()}`
             },
         })
-        .then(res => 
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
             );
     },
 
@@ -47,6 +47,9 @@ const GroupApiService = {
             .then(data => {
                 callback(group_id)
             })
+            .then(() => {
+                window.location.reload(false)
+            })
             .catch(error => {
                 console.error(error)
             });
@@ -62,7 +65,7 @@ const GroupApiService = {
             body: JSON.stringify(newGroup),
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error(res.status)
                 };
             });
@@ -76,7 +79,7 @@ const GroupApiService = {
                 "authorization": `bearer ${TokenService.getAuthToken()}`
             },
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -94,7 +97,7 @@ const GroupApiService = {
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
-                    :res.json()
+                    : res.json()
             );
     }
 };

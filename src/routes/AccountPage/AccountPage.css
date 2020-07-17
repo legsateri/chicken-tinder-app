@@ -4,7 +4,7 @@
         margin-top: 50px;
     }
     .groups_box, .chef_mode_box {
-        width: 250px;
+        width: 300px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -21,6 +21,7 @@
         padding: 0px;
         height: 22px;
         margin-top: 10px;
+        margin-bottom: 20px;
         border: 1px solid lightgray;
         background-color: white;
     }

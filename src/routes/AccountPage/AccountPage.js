@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
 import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
+import GroupApiService from "../../services/GroupApiService";
 import TokenService from "../../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
 import config from "../../config";
@@ -65,14 +66,14 @@ class AccountPage extends Component {
         console.log(userEmail);
         const userGroups = [];
 
-        // FIXME: Add go and delete buttons
+        // FIXME: Add go button functionality
         for (let i = 0; i < groups.length; i++) {
             if (userEmail === groups[i].member_one) {
                 userGroups.push(
                     <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_two}
                         <br />
                         <Link to="/group"><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button">DELETE</button>
+                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );
             } else if (userEmail === groups[i].member_two) {
@@ -80,7 +81,7 @@ class AccountPage extends Component {
                     <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_one} {groups[i].last_name}
                         <br />
                         <Link to="/group"><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button">DELETE</button>
+                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );
             };
