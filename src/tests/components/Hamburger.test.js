@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
-import NewGroupForm from "../../components/NewGroupForm/NewGroupForm";
+import Hamburger from "../../components/Hamburger/Hamburger";
 ////////////////////////////////////////////////////////////////////////////////
 
 it("render without crashing", () => {
@@ -11,7 +11,7 @@ it("render without crashing", () => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <NewGroupForm />
+            <Hamburger />
         </BrowserRouter>,
         div
     );

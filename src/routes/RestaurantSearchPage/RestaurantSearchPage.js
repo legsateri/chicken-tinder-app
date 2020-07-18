@@ -8,6 +8,11 @@ import config from "../../config";
 import "./RestaurantSearchPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+/*  TODO: List for Restaurant Search Page
+            >   Right now this shows a list of results. It should actually trigger the Restaurant Page 
+                so you only see one random restaurant at a time. 
+*/
+
 class RestaurantSearchPage extends Component {
     constructor(props) {
         super(props)

@@ -4,10 +4,6 @@ import React, { Component } from "react";
 import "./RestaurantZipSearchBar.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/* TODO: Thinking maybe the restaurants in the list should have a tally that updates so you can view 
-all the thumbs up and downs for this round. Waiting to research and set up that code once the server 
-is built and login functionality is working. */
-
 class RestaurantZipSearchBar extends Component {
     state = {
         searchInput: ""

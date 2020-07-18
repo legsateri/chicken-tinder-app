@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 import "./GroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+/*  TODO: List for Group Page
+            >   Show the last four restaurant matches (2 on mobile, 4 on desktop) for the group. 
+            >   Update page headline to include the user information for all group members. Something 
+                along the lines of "allegrapusateri@gmail.com and test@gmail.com", nothing fancy.
+            >   The url for this page should be unique per group "/group/:group_id".
+*/
+
 class GroupPage extends Component {
     render() {
         return (

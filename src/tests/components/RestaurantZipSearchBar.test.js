@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
-import NewGroupForm from "../../components/NewGroupForm/NewGroupForm";
+import RestaurantZipSearchBar from "../../components/RestaurantZipSearchBar/RestaurantZipSearchBar";
 ////////////////////////////////////////////////////////////////////////////////
 
 it("render without crashing", () => {
@@ -11,7 +11,7 @@ it("render without crashing", () => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <NewGroupForm />
+            <RestaurantZipSearchBar />
         </BrowserRouter>,
         div
     );

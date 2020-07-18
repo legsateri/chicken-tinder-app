@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
 import Greeting from "../../components/Greeting/Greeting";
 ////////////////////////////////////////////////////////////////////////////////
@@ -15,6 +15,6 @@ it("render without crashing", () => {
         </BrowserRouter>,
         div
     );
-    
+
     ReactDOM.unmountComponentAtNode(div);
 });

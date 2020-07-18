@@ -22,25 +22,25 @@ class Navigation extends Component {
 
     renderPublicLinks() {
         return (
-                <div className="left_justify">
-                    <Link to="/"><p>[Logo]</p></Link>
+            <div className="left_justify">
+                <Link to="/"><p>[Logo]</p></Link>
 
-                    <div id="menu" className="right_justify">
-                        <Link to="/login"><p className="login">Login</p></Link>
-                    </div>
+                <div id="menu" className="right_justify">
+                    <Link to="/login"><p className="login">Login</p></Link>
                 </div>
+            </div>
         );
     };
 
     renderPrivateLinks() {
         return (
-                <div className="left_justify">
-                    <Link to="/"><p>[Logo]</p></Link>
+            <div className="left_justify">
+                <Link to="/"><p>[Logo]</p></Link>
 
-                    <div id="menu" className="right_justify">
-                        <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} handleLogout={this.handleLogout} />
-                    </div>
+                <div id="menu" className="right_justify">
+                    <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} handleLogout={this.handleLogout} />
                 </div>
+            </div>
         );
     };
 
