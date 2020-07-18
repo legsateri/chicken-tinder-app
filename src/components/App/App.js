@@ -7,8 +7,6 @@ import Navigation from "../Navigation/Navigation";
 import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
 import AccountPage from "../../routes/AccountPage/AccountPage";
-import ChatListPage from "../../routes/ChatListPage/ChatListPage";
-import ChatPage from "../../routes/ChatPage/ChatPage";
 import ChefModePage from "../../routes/ChefModePage/ChefModePage";
 import GroupPage from "../../routes/GroupPage/GroupPage"
 import Homepage from "../../routes/Homepage/Homepage";
@@ -63,17 +61,6 @@ class App extends Component {
             <PrivateRoute
               path={"/account"}
               component={AccountPage}
-            />
-
-            <PrivateRoute
-              exact
-              path={"/chat"}
-              component={ChatListPage}
-            />
-
-            <PrivateRoute
-              path={"/chat/:group_id"}
-              component={ChatPage}
             />
 
             <PrivateRoute
