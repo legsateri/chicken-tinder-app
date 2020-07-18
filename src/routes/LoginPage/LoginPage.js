@@ -11,7 +11,8 @@ class LoginPage extends Component {
     constructor() {
         super()
         this.state = {
-            form: "login"
+            form: "login",
+            email: "",
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSignupSuccess = this.handleSignupSuccess.bind(this)

@@ -21,7 +21,9 @@ class AccountPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            groups: []
+            groupsOne: [],
+            groupsTwo: [],
+            currentUser: ""
         };
     };
 
@@ -31,7 +33,14 @@ class AccountPage extends Component {
         this.context.clearError()
 
         Promise.all([
-            fetch(`${config.API_ENDPOINT}/groups`, {
+            fetch(`${config.API_ENDPOINT}/groups/user/one`, {
+                method: "GET",
+                headers: {
+                    "content-type": "application/json",
+                    "authorization": `bearer ${TokenService.getAuthToken()}`
+                },
+            }),
+            fetch(`${config.API_ENDPOINT}/groups/user/two`, {
                 method: "GET",
                 headers: {
                     "content-type": "application/json",
@@ -39,18 +48,28 @@ class AccountPage extends Component {
                 },
             })
         ])
-            .then(([groups]) => {
-                if (!groups.ok) {
-                    return groups.json().then(e => Promise.reject(e));
+            .then(([groupsOne, groupsTwo]) => {
+                if (!groupsOne.ok) {
+                    return groupsOne.json().then(e => Promise.reject(e));
+                };
+                if (!groupsTwo.ok) {
+                    return groupsTwo.json().then(e => Promise.reject(e));
                 };
                 return Promise.all([
-                    groups.json()
+                    groupsOne.json(),
+                    groupsTwo.json()
                 ]);
             })
-            .then(([groupsJson]) => {
+            .then(([groupsOneJson, groupsTwoJson]) => {
                 this.setState({
-                    groups: groupsJson
+                    groupsOne: groupsOneJson,
+                    groupsTwo: groupsTwoJson
                 });
+            })
+            .then(() => {
+                this.setState({
+                    currentUser: this.state.groupsOne[0].member_one
+                })
             })
             .catch(error => {
                 console.log(error);
@@ -58,29 +77,30 @@ class AccountPage extends Component {
     };
 
     render() {
-        const groups = this.state.groups;
-        console.log(groups);
-
-        // FIXME: Make email dynamic based on logged in user
-        const userEmail = "allegrapusateri@gmail.com";
-        console.log(userEmail);
+        const groupsOne = this.state.groupsOne;
+        const groupsTwo = this.state.groupsTwo;
+        const currentUser = this.state.currentUser;
         const userGroups = [];
 
-        for (let i = 0; i < groups.length; i++) {
-            if (userEmail === groups[i].member_one) {
+        for (let i = 0; i < groupsOne.length; i++) {
+            if (currentUser === groupsOne[i].member_one) {
                 userGroups.push(
-                    <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_two}
+                    <li className="list_item" key={groupsOne[i].group_id}>Get food with: {groupsOne[i].member_two}
                         <br />
-                        <Link to={`/group/${groups[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
+                        <Link to={`/group/${groupsOne[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsOne[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );
-            } else if (userEmail === groups[i].member_two) {
+            };
+        };
+
+        for (let i = 0; i < groupsTwo.length; i++) {
+            if (currentUser === groupsTwo[i].member_two) {
                 userGroups.push(
-                    <li className="list_item" key={groups[i].group_id}>Get food with: {groups[i].member_one} {groups[i].last_name}
+                    <li className="list_item" key={groupsTwo[i].group_id}>Get food with: {groupsTwo[i].member_one}
                         <br />
-                        <Link to={`/group/${groups[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groups[i].group_id, this.context.deleteGroup)}>DELETE</button>
+                        <Link to={`/group/${groupsTwo[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsTwo[i].group_id, this.context.deleteGroup)}>DELETE</button>
                     </li>
                 );
             };

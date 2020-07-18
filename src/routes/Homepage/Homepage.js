@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./Homepage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Differentiate buttons/content based on logged in versus not logged in.
 class Homepage extends Component {
     render() {
         return (
