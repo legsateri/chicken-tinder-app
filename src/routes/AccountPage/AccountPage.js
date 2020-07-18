@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
 import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
+import Greeting from "../../components/Greeting/Greeting";
+////////////////////////////////////////////////////////////////////////////////
 import GroupApiService from "../../services/GroupApiService";
 import TokenService from "../../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
@@ -106,14 +108,11 @@ class AccountPage extends Component {
             };
         };
 
-        console.log(userGroups);
-
         return (
             <>
                 <main id="page_wrap">
-                    {/* FIXME: Add logged in user's first name */}
                     <header className="header">
-                        <h1>Hi!</h1>
+                        <Greeting />
                     </header>
 
 
