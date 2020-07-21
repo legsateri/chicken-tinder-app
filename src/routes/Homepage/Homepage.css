@@ -5,6 +5,17 @@
         margin-left: auto;
         padding-left: 20px;
         padding-right: 20px;
+        width: 300px;
+        margin-top: 40px;
+    }
+    .home_header {
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 300px;
+        margin-top: 100px;
     }
     #homepage_start_button {
         margin-bottom: 100px;

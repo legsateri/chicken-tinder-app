@@ -1,29 +1,81 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from "react";
-////////////////////////////////////////////////////////////////////////////////
 import { Link } from "react-router-dom";
+////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from "../../contexts/RestaurantContext";
+////////////////////////////////////////////////////////////////////////////////
+import TokenService from "../../services/TokenService";
+////////////////////////////////////////////////////////////////////////////////
+import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
 import "./GroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /*  TODO: List for Group Page
             >   Show the last four restaurant matches (2 on mobile, 4 on desktop) for the group. 
-            >   Update page headline to include the user information for all group members. Something 
-                along the lines of "allegrapusateri@gmail.com and test@gmail.com", nothing fancy.
-            >   The url for this page should be unique per group "/group/:group_id".
 */
 
 class GroupPage extends Component {
+    static defaultProps = {
+        match: { params: {} },
+        history: {
+            push: () => { },
+            goBack: () => { }
+        }
+    };
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            groups: []
+        };
+    };
+
+    static contextType = RestaurantContext;
+
+    componentDidMount() {
+        const group_id = this.props.match.params.group_id;
+        this.context.clearError();
+
+        Promise.all([
+            fetch(`${config.API_ENDPOINT}/groups/${group_id}`, {
+                method: "GET",
+                headers: {
+                    "content-type": "application/json",
+                    "authorization": `bearer ${TokenService.getAuthToken()}`
+                }
+            })
+        ])
+            .then(([groups]) => {
+                if (!groups.ok) {
+                    return groups.json().then(e => Promise.reject(e));
+                };
+                return Promise.all([
+                    groups.json()
+                ]);
+            })
+            .then(([groupsJson]) => {
+                this.setState({
+                    groups: groupsJson
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
     render() {
+        const groups = this.state.groups;
+
         return (
             <>
                 <main id="page_wrap">
-                    <header className="header">
-                        <h1>Group One</h1>
+                    <header className="back_header">
+                        <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Group</p>
                     </header>
 
                     <div className="match_box">
-                        <h2 className="subhead">Past Matches</h2>
+                        <h3 className="subhead">Past Matches</h3>
                         <ul className="list match_flex">
                             <li className="list_item" id="match_one"><div id="past_match_placeholder"></div></li>
                             <li className="list_item"><div id="past_match_placeholder"></div></li>

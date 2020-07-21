@@ -67,6 +67,10 @@ class LoginPage extends Component {
         return (
             <>
                 <main id="page_wrap">
+                    <header className="back_header">
+                        <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Login</p>
+                    </header>
+
                     <header>
                         <h1>Start Eating</h1>
 

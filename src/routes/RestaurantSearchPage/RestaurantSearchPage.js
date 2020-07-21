@@ -14,6 +14,14 @@ import "./RestaurantSearchPage.css";
 */
 
 class RestaurantSearchPage extends Component {
+    static defaultProps = {
+        match: { params: {} },
+        history: {
+            push: () => { },
+            goBack: () => { }
+        }
+    };
+
     constructor(props) {
         super(props)
         this.state = {
@@ -86,6 +94,10 @@ class RestaurantSearchPage extends Component {
         return (
             <>
                 <main id="page_wrap">
+                    <header className="back_header">
+                        <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Restaurant Search</p>
+                    </header>
+
                     <header className="header spacing">
                         <h1>Find A Match</h1>
                         <p>Enter your zip and we'll suggest some restaurants in your area.</p>

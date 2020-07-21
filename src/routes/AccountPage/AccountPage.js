@@ -17,7 +17,10 @@ import "./AccountPage.css";
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },
-        history: { push: () => { } }
+        history: { 
+            push: () => { }, 
+            goBack: () => { }
+        }
     };
 
     constructor(props) {
@@ -111,6 +114,10 @@ class AccountPage extends Component {
         return (
             <>
                 <main id="page_wrap">
+                    <header className="back_header">
+                        <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Account</p>
+                    </header>
+
                     <header className="header">
                         <Greeting />
                     </header>

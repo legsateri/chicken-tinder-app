@@ -10,7 +10,7 @@ class Homepage extends Component {
         return (
             <>
                 <main id="page_wrap">
-                    <header className="header">
+                    <header className="home_header">
                         <h1>Food You Love</h1>
                         <p>Welcome Chicken Tinder, a first-of-its-kind restaurant dating app. Invite friends to give a "yup" or "meh" while deciding what"s for dinner.</p>
 
