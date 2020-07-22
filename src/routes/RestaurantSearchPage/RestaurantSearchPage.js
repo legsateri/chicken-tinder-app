@@ -8,11 +8,6 @@ import config from "../../config";
 import "./RestaurantSearchPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  TODO: List for Restaurant Search Page
-            >   Right now this shows a list of results. It should actually trigger the Restaurant Page 
-                so you only see one random restaurant at a time. 
-*/
-
 class RestaurantSearchPage extends Component {
     static defaultProps = {
         match: { params: {} },
@@ -27,7 +22,7 @@ class RestaurantSearchPage extends Component {
         this.state = {
             restaurants: [],
             searchQuery: "60618",
-            error: []
+            error: [],
         };
     };
 
@@ -50,17 +45,20 @@ class RestaurantSearchPage extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log("Good response from Google Places API.")
+                console.log("Good response from Google Places API.");
                 this.setState({
                     restaurants: data.results,
                     error: null
                 });
-                console.log(this.state.restaurants)
+                console.log(this.state.restaurants);
             })
             .catch(error => {
                 this.setState({
                     error: error.message
                 });
+            })
+            .then(() => {
+                this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`); 
             });
     };
 
@@ -76,21 +74,6 @@ class RestaurantSearchPage extends Component {
     };
 
     render() {
-        let listOfRestaurants = [];
-
-        for (let i = 0; i < this.state.restaurants.length; i++) {
-            if (this.state.restaurants.length !== 0) {
-                listOfRestaurants.push(
-                    <li className="restaurant_list_item" key={this.state.restaurants[i].id}>
-                        <div>
-                            <h2>{this.state.restaurants[i].name}</h2>
-                            <p>{this.state.restaurants[i].formatted_address}</p>
-                        </div>
-                    </li>
-                );
-            };
-        };
-
         return (
             <>
                 <main id="page_wrap">
@@ -104,7 +87,6 @@ class RestaurantSearchPage extends Component {
                     </header>
 
                     <RestaurantZipSearchBar handleSearchSubmit={this.handleSearchSubmit} />
-                    <ul className="list">{listOfRestaurants}</ul>
                 </main>
             </>
         );
