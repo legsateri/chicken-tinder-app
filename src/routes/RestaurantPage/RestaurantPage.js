@@ -1,5 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
 import EwButton from "../../components/EwButton/EwButton";
 import YumButton from "../../components/YumButton/YumButton";
@@ -8,11 +11,23 @@ import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /*  TODO: List for Restaurant Page
-            >   Show restaurant name, a picture, and address.
-            >   The url for this page should be unique per restaurant "/restaurant/:restaurant_id".
+            >   Show restaurant picture.
+            >   Should something link to restaurant menu?
+*/
+
+/*  FIXME: List for Restaurant Page
+            >   Yum and Ew buttons are triggering a new restaurant to appear but there are a few bugs:
+                >   The first <Link> does not trigger anything so I had to add one around blank space.
+                >   The second <Link>, EW button, goes through each restaurant in the array 1 by 1.
+                >   The third <Link>, YUM button, goes through every other restaurant.
+            >   Need something to happen once array loops through:
+                >   Either say all out of yum try another zip OR trigger additional results by using 
+                    the code at the bottom of the API results (refer to Google Places Documentaition).
 */
 
 class RestaurantPage extends Component {
+    static contextType = RestaurantContext;
+
     static defaultProps = {
         match: { params: {} },
         history: {
@@ -22,24 +37,44 @@ class RestaurantPage extends Component {
     };
 
     render() {
+        const restaurants = this.context.restaurants;
+        const currentPath = window.location.pathname;
+        const restaurant_id = currentPath.replace("/restaurants/", "");
+        const currentRestaurant = [];
+
+        console.log(restaurants);
+        console.log(currentPath);
+        console.log(restaurant_id)
+
+        for (let i = 0; i < restaurants.length; i++) {
+            if (restaurants[i].id === restaurant_id) {
+                currentRestaurant.push(
+                    <main id="page_wrap">
+                        <header className="back_header">
+                            <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / {restaurants[i].name}</p>
+                        </header>
+
+                        <div key={restaurant_id}>
+                            <header className="header spacing">
+                                <h1>{restaurants[i].name}</h1>
+                            </header>
+
+                            <div className="restaurant_box"></div>
+
+                            <div className="restaurant_buttons">
+                                <Link to={`/restaurants/${restaurants[i++].id}`}></Link>
+                                <Link to={`/restaurants/${restaurants[i++].id}`}><EwButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i++].id}`}><YumButton /></Link>
+                            </div>
+                        </div>
+                    </main>
+                );
+            };
+        };
+
         return (
             <>
-                <main id="page_wrap">
-                    <header className="back_header">
-                        <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Restaurant Name</p>
-                    </header>
-
-                    <header className="header spacing">
-                        <h1>Restaurant Name</h1>
-                    </header>
-
-                    <div className="restaurant_box"></div>
-
-                    <div className="restaurant_buttons">
-                        <EwButton />
-                        <YumButton />
-                    </div>
-                </main>
+                {currentRestaurant}
             </>
         );
     };

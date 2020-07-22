@@ -12,7 +12,9 @@ const RestaurantContext = React.createContext({
     clearGroup: () => { },
     addGroup: () => { },
     deleteGroup: () => { },
-    updateGroup: () => { }
+    updateGroup: () => { },
+    setRestaurants: () => { },
+    clearRestaurants: () => { },
 });
 
 export default RestaurantContext;
@@ -30,30 +32,30 @@ export class RestaurantProvider extends Component {
     };
 
     clearError = () => {
-        this.setState({ error: null })
+        this.setState({ error: null });
     };
 
     setGroup = groups => {
-        this.setState({ groups })
+        this.setState({ groups });
     };
 
     clearGroup = () => {
-        this.setState({ groups: null })
-    }
+        this.setState({ groups: null });
+    };
 
     addGroup = group => {
         this.setState({
             groups: [...this.state.groups, group]
-        })
+        });
     };
 
     deleteGroup = groupId => {
         const newGroup = this.state.groups.filter(group =>
             group.group_id !== groupId
-        )
+        );
         this.setState({
             groups: newGroup
-        })
+        });
     };
 
     updateGroup = newGroup => {
@@ -61,7 +63,15 @@ export class RestaurantProvider extends Component {
             groups: this.state.groups.map(group =>
                 (group.group_id !== newGroup.group_id) ? group : newGroup
             )
-        })
+        });
+    };
+
+    setRestaurants = restaurants => {
+        this.setState({ restaurants });
+    };
+
+    clearRestaurants = () => {
+        this.setState({ restaurants: [] });
     };
 
     render() {
@@ -76,6 +86,8 @@ export class RestaurantProvider extends Component {
             addGroup: this.addGroup,
             deleteGroup: this.deleteGroup,
             updateGroup: this.updateGroup,
+            setRestaurants: this.setRestaurants,
+            clearRestaurants: this.clearRestaurants
         };
 
         return (

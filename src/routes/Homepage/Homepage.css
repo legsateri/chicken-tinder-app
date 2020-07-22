@@ -3,8 +3,8 @@
         text-align: center;
         margin-right: auto;
         margin-left: auto;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
         width: 300px;
         margin-top: 40px;
     }
@@ -41,6 +41,9 @@
     #info_screen {
         width: 600px;
     }
+    .header {
+        width: 500px;
+    }
 }
 
 @media only screen and (min-width: 975px) {
@@ -60,5 +63,8 @@
     #info_screen {
         width: 600px;
         text-align: left;
+    }
+    .header {
+        width: 750px;
     }
 }

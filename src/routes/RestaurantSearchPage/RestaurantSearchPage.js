@@ -3,6 +3,8 @@ import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 import RestaurantZipSearchBar from "../../components/RestaurantZipSearchBar/RestaurantZipSearchBar";
 ////////////////////////////////////////////////////////////////////////////////
+import RestaurantContext from "../../contexts/RestaurantContext";
+////////////////////////////////////////////////////////////////////////////////
 import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
 import "./RestaurantSearchPage.css";
@@ -25,6 +27,8 @@ class RestaurantSearchPage extends Component {
             error: [],
         };
     };
+
+    static contextType = RestaurantContext;
 
     handleSearchSubmit = (searchSubmitEvent, searchInput) => {
         searchSubmitEvent.preventDefault();
@@ -50,7 +54,6 @@ class RestaurantSearchPage extends Component {
                     restaurants: data.results,
                     error: null
                 });
-                console.log(this.state.restaurants);
             })
             .catch(error => {
                 this.setState({
@@ -58,7 +61,10 @@ class RestaurantSearchPage extends Component {
                 });
             })
             .then(() => {
-                this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`); 
+                this.context.setRestaurants(this.state.restaurants);
+            })
+            .then(() => {
+                this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`);
             });
     };
 
