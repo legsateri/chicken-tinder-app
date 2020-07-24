@@ -16,9 +16,17 @@ import "./RestaurantPage.css";
 */
 
 /*  FIXME: List for Restaurant Page
-            >   Need something to happen once array loops through:
-                >   Either say all out of yum try another zip OR trigger additional results by using 
-                    the code at the bottom of the API results (refer to Google Places Documentaition).
+            >   When a user gets to index 19 in the array, need the app to do 2 things:
+                1.  Actually render (right now it does not because the buttons cannot link to i + 1)
+                2.  When either button is clicked it needs to retrigger the API search using the 
+                    next_page_token saved in context as the pagetoken parameter AND if it's the YUM
+                    button, then the restaurant ID still needs to be PATCHed over to the server. The
+                    API call also needs to be set up EXACTLY the same way as before so it replaces
+                    current list of restaurants in state/context and it saves a new next_page_token...
+                    unless the token doesn't change until a new zip is entered. Also this can only be 
+                    done for up to 60 results, the max for Google Places API. When that happens we will
+                    need to return a message that says to try a new zip code or something. 
+            >   Reference: https://developers.google.com/places/web-service/search
 */
 
 class RestaurantPage extends Component {
@@ -40,9 +48,9 @@ class RestaurantPage extends Component {
 
         console.log(restaurants);
         console.log(currentPath);
-        console.log(restaurant_id)
+        console.log(restaurant_id);
 
-        for (let i = 0; i < restaurants.length; ++i) {
+        for (let i = 0; i < restaurants.length; i++) {
             if (restaurants[i].id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
@@ -64,7 +72,7 @@ class RestaurantPage extends Component {
                         </div>
                     </main>
                 );
-            };
+            }
         };
 
         return (

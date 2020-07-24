@@ -25,6 +25,7 @@ class RestaurantSearchPage extends Component {
             restaurants: [],
             searchQuery: "60618",
             error: [],
+            nextPage: ""
         };
     };
 
@@ -52,6 +53,7 @@ class RestaurantSearchPage extends Component {
                 console.log("Good response from Google Places API.");
                 this.setState({
                     restaurants: data.results,
+                    nextPage: data.next_page_token,
                     error: null
                 });
             })
@@ -62,6 +64,9 @@ class RestaurantSearchPage extends Component {
             })
             .then(() => {
                 this.context.setRestaurants(this.state.restaurants);
+            })
+            .then(() => {
+                this.context.setNextPage(this.state.nextPage);
             })
             .then(() => {
                 this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`);
