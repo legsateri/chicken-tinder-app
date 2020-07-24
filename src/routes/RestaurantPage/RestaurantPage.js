@@ -16,10 +16,6 @@ import "./RestaurantPage.css";
 */
 
 /*  FIXME: List for Restaurant Page
-            >   Yum and Ew buttons are triggering a new restaurant to appear but there are a few bugs:
-                >   The first <Link> does not trigger anything so I had to add one around blank space.
-                >   The second <Link>, EW button, goes through each restaurant in the array 1 by 1.
-                >   The third <Link>, YUM button, goes through every other restaurant.
             >   Need something to happen once array loops through:
                 >   Either say all out of yum try another zip OR trigger additional results by using 
                     the code at the bottom of the API results (refer to Google Places Documentaition).
@@ -46,7 +42,7 @@ class RestaurantPage extends Component {
         console.log(currentPath);
         console.log(restaurant_id)
 
-        for (let i = 0; i < restaurants.length; i++) {
+        for (let i = 0; i < restaurants.length; ++i) {
             if (restaurants[i].id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
@@ -62,9 +58,8 @@ class RestaurantPage extends Component {
                             <div className="restaurant_box"></div>
 
                             <div className="restaurant_buttons">
-                                <Link to={`/restaurants/${restaurants[i++].id}`}></Link>
-                                <Link to={`/restaurants/${restaurants[i++].id}`}><EwButton /></Link>
-                                <Link to={`/restaurants/${restaurants[i++].id}`}><YumButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].id}`}><EwButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].id}`}><YumButton /></Link>
                             </div>
                         </div>
                     </main>
