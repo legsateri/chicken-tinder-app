@@ -7,12 +7,13 @@ import RestaurantContext from "../../contexts/RestaurantContext";
 import EwButton from "../../components/EwButton/EwButton";
 import YumButton from "../../components/YumButton/YumButton";
 ////////////////////////////////////////////////////////////////////////////////
+import config from "../../config";
+////////////////////////////////////////////////////////////////////////////////
 import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /*  TODO: List for Restaurant Page
             >   Show restaurant picture.
-            >   Should something link to restaurant menu?
 */
 
 /*  FIXME: List for Restaurant Page
@@ -44,11 +45,24 @@ class RestaurantPage extends Component {
         const restaurants = this.context.restaurants;
         const currentPath = window.location.pathname;
         const restaurant_id = currentPath.replace("/restaurants/", "");
+        let photoreference = "";
         const currentRestaurant = [];
 
-        console.log(restaurants);
-        console.log(currentPath);
-        console.log(restaurant_id);
+        for (let i = 0; i < restaurants.length; i++) {
+            if (restaurants[i].id === restaurant_id) {
+                photoreference = restaurants[i].photos[0].photo_reference;
+            };
+        };
+
+        const photoUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoreference}&key=${config.RESTAURANTS_KEY}`;
+        let photo = []
+
+        fetch(photoUrl)
+            .then(response => {
+                photo.push(response.url);
+            });
+
+        console.log(photo);
 
         for (let i = 0; i < restaurants.length; i++) {
             if (restaurants[i].id === restaurant_id) {
@@ -63,7 +77,9 @@ class RestaurantPage extends Component {
                                 <h1>{restaurants[i].name}</h1>
                             </header>
 
-                            <div className="restaurant_box"></div>
+                            <div className="restaurant_box">
+                                <img src={photo[0]} alt="Work please" />
+                            </div>
 
                             <div className="restaurant_buttons">
                                 <Link to={`/restaurants/${restaurants[i + 1].id}`}><EwButton /></Link>
@@ -72,7 +88,7 @@ class RestaurantPage extends Component {
                         </div>
                     </main>
                 );
-            }
+            };
         };
 
         return (

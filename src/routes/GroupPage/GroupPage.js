@@ -65,8 +65,6 @@ class GroupPage extends Component {
     };
 
     render() {
-        const groups = this.state.groups;
-
         return (
             <>
                 <main id="page_wrap">
