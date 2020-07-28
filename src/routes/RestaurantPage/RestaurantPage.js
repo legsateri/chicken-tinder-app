@@ -9,12 +9,9 @@ import YumButton from "../../components/YumButton/YumButton";
 ////////////////////////////////////////////////////////////////////////////////
 import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
+import RestaurantIcon from "./RestaurantIcon.png"
 import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
-
-/*  TODO: List for Restaurant Page
-            >   Show restaurant picture.
-*/
 
 /*  FIXME: List for Restaurant Page
             >   When a user gets to index 19 in the array, need the app to do 2 things:
@@ -26,7 +23,7 @@ import "./RestaurantPage.css";
                     current list of restaurants in state/context and it saves a new next_page_token...
                     unless the token doesn't change until a new zip is entered. Also this can only be 
                     done for up to 60 results, the max for Google Places API. When that happens we will
-                    need to return a message that says to try a new zip code or something. 
+                    need to return a message that says to try a new zip code or something.
             >   Reference: https://developers.google.com/places/web-service/search
 */
 
@@ -49,12 +46,24 @@ class RestaurantPage extends Component {
         const currentRestaurant = [];
 
         for (let i = 0; i < restaurants.length; i++) {
-            if (restaurants[i].id === restaurant_id) {
+            const photoProperty = restaurants[i].hasOwnProperty("photos");
+
+            if (restaurants[i].id === restaurant_id && photoProperty === true) {
                 photoreference = restaurants[i].photos[0].photo_reference;
+            } else if (restaurants[i].id === restaurant_id && photoProperty !== true) {
+                photoreference = "none";
             };
         };
 
-        const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoreference}&key=${config.RESTAURANTS_KEY}`;
+        let photoUrl = "";
+
+        for (let i = 0; i < restaurants.length; i++) {
+            if (photoreference === "none") {
+                photoUrl = RestaurantIcon;
+            } else {
+                photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoreference}&key=${config.RESTAURANTS_KEY}`;
+            };
+        };
 
         for (let i = 0; i < restaurants.length; i++) {
             if (restaurants[i].id === restaurant_id) {

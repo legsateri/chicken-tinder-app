@@ -54,7 +54,6 @@ class ChefModePage extends Component {
                     weather: data.current.temp_f,
                     weatherError: null
                 });
-                console.log(this.state.weather)
                 this.handleRecipeQuery()
                 this.handleRecipeFetch()
             })
@@ -92,8 +91,6 @@ class ChefModePage extends Component {
         this.setState({
             recipeQuery: recipeSearchInput
         });
-
-        console.log(this.state.recipeQuery);
     };
 
     formatReceipeQuery = (baseRecipeUrl, recipeKey, recipeId) => {
@@ -129,7 +126,6 @@ class ChefModePage extends Component {
                     recipes: data.hits,
                     recipeError: null
                 });
-                console.log(this.state.recipes);
             })
             .catch(recipeError => {
                 this.setState({
