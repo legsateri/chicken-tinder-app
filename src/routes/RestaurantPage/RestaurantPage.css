@@ -1,29 +1,28 @@
 @media only screen and (min-width: 200px) {
-    .restaurant_box {
-        background-color: white;
-        border: 2px solid darkgray;
-        height: 300px;
-        width: 250px;
-        margin-left: auto;
-        margin-right: auto;
-    }
     .restaurant_buttons {
         display: flex;
         justify-content: center;
         margin-top: 20px;
         margin-bottom: 25px;
     }
+    .restaurant_image{
+        max-height: 300px;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media only screen and (min-width: 750px) {
-    .restaurant_box {
-        height: 600px;
-        width: 500px;
-        margin-top: 50px;
-    }
+
     .restaurant_buttons {
         margin-top: 30px;
         margin-bottom: 50px;
+    }
+    .restaurant_image{
+        max-height: 600px;
+        max-width: 500px;
+        margin-top: 50px;
     }
 }
 

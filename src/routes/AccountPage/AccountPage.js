@@ -14,6 +14,8 @@ import config from "../../config";
 import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+/*  FIXME: Add a button to start a group from here at the bottom of "My Groups" Section. */
+
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },

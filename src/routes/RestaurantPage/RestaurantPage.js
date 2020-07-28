@@ -54,15 +54,7 @@ class RestaurantPage extends Component {
             };
         };
 
-        const photoUrl = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoreference}&key=${config.RESTAURANTS_KEY}`;
-        let photo = []
-
-        fetch(photoUrl)
-            .then(response => {
-                photo.push(response.url);
-            });
-
-        console.log(photo);
+        const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=${photoreference}&key=${config.RESTAURANTS_KEY}`;
 
         for (let i = 0; i < restaurants.length; i++) {
             if (restaurants[i].id === restaurant_id) {
@@ -77,8 +69,8 @@ class RestaurantPage extends Component {
                                 <h1>{restaurants[i].name}</h1>
                             </header>
 
-                            <div className="restaurant_box">
-                                <img src={photo[0]} alt="Work please" />
+                            <div>
+                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
                             </div>
 
                             <div className="restaurant_buttons">
