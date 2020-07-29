@@ -14,9 +14,8 @@ import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
 /*  FIXME: List for Restaurant Page
-            >   When a user gets to index 19 in the array, need the app to do 2 things:
-                1.  Actually render (right now it does not because the buttons cannot link to i + 1)
-                2.  When either button is clicked it needs to retrigger the API search using the 
+            >   When a user gets to index 19 in the array, need the app to:
+                >   When either button is clicked it needs to retrigger the API search using the 
                     next_page_token saved in context as the pagetoken parameter AND if it's the YUM
                     button, then the restaurant ID still needs to be PATCHed over to the server. The
                     API call also needs to be set up EXACTLY the same way as before so it replaces
