@@ -84,7 +84,7 @@ class GroupPage extends Component {
                         </ul>
                     </div>
 
-                    <Link to="/search"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
+                    <Link to="/restaurants/search"><button type="submit" className="submit_button" id="group_search_button">START NEW SEARCH</button></Link>
                 </main>
             </>
         );

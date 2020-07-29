@@ -130,7 +130,7 @@ class AccountPage extends Component {
                             {userGroups}
                         </ul>
 
-                        <Link to={`/start-group`}><p>Start A Group ></p></Link>
+                        <Link to={`/start-group`}><p className="start_group_link">Start A Group ></p></Link>
                     </div>
 
                     <div className="chef_mode_box">

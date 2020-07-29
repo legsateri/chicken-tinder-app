@@ -31,14 +31,8 @@
     .chef_mode_box {
         margin-bottom: 50px;
     }
-    .start_group_button {
-        width: 150px;
-        padding: 0px;
-        height: 30px;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        border: 1px solid lightgray;
-        background-color: white;
+    .start_group_link {
+        line-height: 0;
     }
 }
 

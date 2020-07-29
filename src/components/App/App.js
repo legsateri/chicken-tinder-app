@@ -79,7 +79,7 @@ class App extends Component {
             />
 
             <PrivateRoute
-              path={"/search"}
+              path={"/restaurants/search"}
               component={RestaurantSearchPage}
             />
 
