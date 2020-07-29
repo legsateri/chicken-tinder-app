@@ -14,8 +14,6 @@ import config from "../../config";
 import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  FIXME: Add a button to start a group from here at the bottom of "My Groups" Section. */
-
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },
@@ -127,9 +125,12 @@ class AccountPage extends Component {
 
                     <div className="groups_box">
                         <h2 className="subhead">My Groups</h2>
+
                         <ul className="list">
                             {userGroups}
                         </ul>
+
+                        <Link to={`/start-group`}><p>Start A Group ></p></Link>
                     </div>
 
                     <div className="chef_mode_box">
