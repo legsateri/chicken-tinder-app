@@ -66,7 +66,7 @@ class RestaurantPage extends Component {
         };
 
         for (let i = 0; i < restaurants.length; i++) {
-            if (restaurants[i].id === restaurant_id) {
+            if (restaurants[i] !== restaurants[19] && restaurants[i].id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
                         <header className="back_header">
@@ -85,6 +85,29 @@ class RestaurantPage extends Component {
                             <div className="restaurant_buttons">
                                 <Link to={`/restaurants/${restaurants[i + 1].id}`}><EwButton /></Link>
                                 <Link to={`/restaurants/${restaurants[i + 1].id}`}><YumButton /></Link>
+                            </div>
+                        </div>
+                    </main>
+                );
+            } else if (restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
+                currentRestaurant.push(
+                    <main id="page_wrap">
+                        <header className="back_header">
+                            <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / {restaurants[i].name}</p>
+                        </header>
+
+                        <div key={restaurant_id}>
+                            <header className="header spacing">
+                                <h1>{restaurants[i].name}</h1>
+                            </header>
+
+                            <div>
+                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                            </div>
+
+                            <div className="restaurant_buttons">
+                                <EwButton />
+                                <YumButton />
                             </div>
                         </div>
                     </main>

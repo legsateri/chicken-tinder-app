@@ -72,6 +72,7 @@ export class RestaurantProvider extends Component {
 
     setRestaurants = restaurants => {
         this.setState({ restaurants });
+        console.log(restaurants);
     };
 
     clearRestaurants = () => {
@@ -79,7 +80,8 @@ export class RestaurantProvider extends Component {
     };
 
     setNextPage = nextPage => {
-        console.log(nextPage)
+        this.setState({ nextPage });
+        console.log(nextPage);
     };
 
     clearNextPage = () => {
