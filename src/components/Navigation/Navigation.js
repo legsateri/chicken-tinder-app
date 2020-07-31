@@ -23,10 +23,10 @@ class Navigation extends Component {
     renderPublicLinks() {
         return (
             <div className="left_justify">
-                <Link to="/"><p>[Logo]</p></Link>
+                <Link to="/" className="link_style" style={{ textDecoration: "none" }}><p>[Logo]</p></Link>
 
                 <div id="menu" className="right_justify">
-                    <Link to="/login"><p className="login">Login</p></Link>
+                    <Link to="/login" className="link_style" style={{ textDecoration: "none" }}><p className="login">Login</p></Link>
                 </div>
             </div>
         );
@@ -35,7 +35,7 @@ class Navigation extends Component {
     renderPrivateLinks() {
         return (
             <div className="left_justify">
-                <Link to="/"><p>[Logo]</p></Link>
+                <Link to="/" className="link_style logo_placeholder" style={{ textDecoration: "none" }} ><p>[Logo]</p></Link>
 
                 <div id="menu" className="right_justify">
                     <Hamburger pageWrapId={"page_wrap"} outerContainerId={"App"} handleLogout={this.handleLogout} />

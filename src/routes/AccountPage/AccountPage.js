@@ -17,8 +17,8 @@ import "./AccountPage.css";
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },
-        history: { 
-            push: () => { }, 
+        history: {
+            push: () => { },
             goBack: () => { }
         }
     };
@@ -130,7 +130,7 @@ class AccountPage extends Component {
                             {userGroups}
                         </ul>
 
-                        <Link to={`/start-group`}><p className="start_group_link">Start A Group ></p></Link>
+                        <Link to={`/start-group`} className="link_style" style={{ textDecoration: "none" }}><p className="start_group_link">Start A Group ></p></Link>
                     </div>
 
                     <div className="chef_mode_box">

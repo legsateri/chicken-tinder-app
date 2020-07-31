@@ -86,3 +86,16 @@
 .bm-overlay {
     background: #b8b7ad;
 }
+
+.link_style:link {
+    text-decoration: none;
+    color: black;
+}
+
+.link_style:visited {
+    color: black;
+}
+
+.logo_placeholder {
+    font-weight: bold;
+}

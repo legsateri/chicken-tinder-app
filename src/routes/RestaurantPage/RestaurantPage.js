@@ -116,8 +116,8 @@ class RestaurantPage extends Component {
                             </div>
 
                             <div className="restaurant_buttons" onClick={this.handleClick}>
-                                <Link to={"/all-out"}><EwButton /></Link>
-                                <Link to={"/all-out"}><YumButton /></Link>
+                                <Link to={"/all-out"} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><EwButton /></Link>
+                                <Link to={"/all-out"} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><YumButton /></Link>
                             </div>
                         </div>
                     </main>
@@ -162,8 +162,8 @@ class RestaurantPage extends Component {
                             </div>
 
                             <div className="restaurant_buttons">
-                                <Link to={`/restaurants/${restaurants[i + 1].id}`}><EwButton /></Link>
-                                <Link to={`/restaurants/${restaurants[i + 1].id}`}><YumButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><EwButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><YumButton /></Link>
                             </div>
                         </div>
                     </main>

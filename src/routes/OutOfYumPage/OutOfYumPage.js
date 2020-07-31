@@ -9,7 +9,7 @@ class OutOfYumPage extends Component {
             <>
                 <main id="page_wrap">
                     <header className="back_header">
-                        <p className="back_p"><Link to={"/search"}><span className="back_p back">Search</span></Link> / Out Of Yum</p>
+                        <p className="back_p"><Link to={"/search"} className="link_style"><span className="back_p back">Search</span></Link> / Out Of Yum</p>
                     </header>
 
                     <div>
