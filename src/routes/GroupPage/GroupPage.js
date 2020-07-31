@@ -74,6 +74,8 @@ class GroupPage extends Component {
 
                     <div className="match_box">
                         <h3 className="subhead">Past Matches</h3>
+                        <Link to={`/search`} className="link_style" style={{ textDecoration: "none" }}><p className="start_search_link">Start A New Search ></p></Link>
+
                         <ul className="list match_flex">
                             <li className="list_item" id="match_one"><div id="past_match_placeholder"></div></li>
                             <li className="list_item"><div id="past_match_placeholder"></div></li>

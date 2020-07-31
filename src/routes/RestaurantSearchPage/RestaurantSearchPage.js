@@ -10,9 +10,6 @@ import config from "../../config";
 import "./RestaurantSearchPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  FIXME: Need to lock this page so you can only access it through the group page. Error if you try 
-    to access any other way should say "Please start or select a group from your account page" */
-
 class RestaurantSearchPage extends Component {
     static defaultProps = {
         match: { params: {} },
