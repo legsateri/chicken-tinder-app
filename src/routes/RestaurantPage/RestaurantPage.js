@@ -13,19 +13,6 @@ import RestaurantIcon from "./RestaurantIcon.png"
 import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  FIXME: List for Restaurant Page
-            >   When a user gets to index 19 in the array, need the app to:
-                >   When either button is clicked it needs to retrigger the API search using the 
-                    next_page_token saved in context as the pagetoken parameter AND if it's the YUM
-                    button, then the restaurant ID still needs to be PATCHed over to the server. The
-                    API call also needs to be set up EXACTLY the same way as before so it replaces
-                    current list of restaurants in state/context and it saves a new next_page_token...
-                    unless the token doesn't change until a new zip is entered. Also this can only be 
-                    done for up to 60 results, the max for Google Places API. When that happens we will
-                    need to return a message that says to try a new zip code or something.
-            >   Reference: https://developers.google.com/places/web-service/search
-*/
-
 class RestaurantPage extends Component {
     static contextType = RestaurantContext;
 
@@ -35,6 +22,53 @@ class RestaurantPage extends Component {
             push: () => { },
             goBack: () => { }
         }
+    };
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            restaurants: [],
+            error: [],
+            nextPage: ""
+        };
+        this.handleClick = this.handleClick.bind(this);
+    };
+
+    handleClick = () => {
+        if (this.context.nextPage !== undefined) {
+            let nextPageUrl = `https://cors-anywhere.herokuapp.com/${config.RESTAURANTS_ENDPOINT}/json?pagetoken=${this.context.nextPage}&key=${config.RESTAURANTS_KEY}`;
+
+            fetch(nextPageUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Something went wrong. Please try again later.");
+                    }
+                    return response;
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Good response from Google Places API.");
+                    this.setState({
+                        restaurants: data.results,
+                        nextPage: data.next_page_token,
+                        error: null
+                    });
+                })
+                .catch(error => {
+                    this.setState({
+                        error: error.message
+                    });
+                })
+                .then(() => {
+                    this.context.setRestaurants(this.state.restaurants);
+                })
+                .then(() => {
+                    this.context.setNextPage(this.state.nextPage);
+                })
+                .then(() => {
+                    this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`);
+                });
+        };
     };
 
     render() {
@@ -65,7 +99,53 @@ class RestaurantPage extends Component {
         };
 
         for (let i = 0; i < restaurants.length; i++) {
-            if (restaurants[i] !== restaurants[19] && restaurants[i].id === restaurant_id) {
+            if (this.context.nextPage === undefined && restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
+                currentRestaurant.push(
+                    <main id="page_wrap">
+                        <header className="back_header">
+                            <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / {restaurants[i].name}</p>
+                        </header>
+
+                        <div key={restaurant_id}>
+                            <header className="header spacing">
+                                <h1>{restaurants[i].name}</h1>
+                            </header>
+
+                            <div>
+                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                            </div>
+
+                            <div className="restaurant_buttons" onClick={this.handleClick}>
+                                <Link to={"/all-out"}><EwButton /></Link>
+                                <Link to={"/all-out"}><YumButton /></Link>
+                            </div>
+                        </div>
+                    </main>
+                );
+            } else if (restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
+                currentRestaurant.push(
+                    <main id="page_wrap">
+                        <header className="back_header">
+                            <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / {restaurants[i].name}</p>
+                        </header>
+
+                        <div key={restaurant_id}>
+                            <header className="header spacing">
+                                <h1>{restaurants[i].name}</h1>
+                            </header>
+
+                            <div>
+                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                            </div>
+
+                            <div className="restaurant_buttons" onClick={this.handleClick}>
+                                <EwButton />
+                                <YumButton />
+                            </div>
+                        </div>
+                    </main>
+                );
+            } if (restaurants[i] !== restaurants[19] && restaurants[i].id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
                         <header className="back_header">
@@ -88,31 +168,9 @@ class RestaurantPage extends Component {
                         </div>
                     </main>
                 );
-            } else if (restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
-                currentRestaurant.push(
-                    <main id="page_wrap">
-                        <header className="back_header">
-                            <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / {restaurants[i].name}</p>
-                        </header>
-
-                        <div key={restaurant_id}>
-                            <header className="header spacing">
-                                <h1>{restaurants[i].name}</h1>
-                            </header>
-
-                            <div>
-                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
-                            </div>
-
-                            <div className="restaurant_buttons">
-                                <EwButton />
-                                <YumButton />
-                            </div>
-                        </div>
-                    </main>
-                );
             };
         };
+
 
         return (
             <>

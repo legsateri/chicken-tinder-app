@@ -12,6 +12,7 @@ import GroupPage from "../../routes/GroupPage/GroupPage"
 import Homepage from "../../routes/Homepage/Homepage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
+import OutOfYumPage from "../../routes/OutOfYumPage/OutOfYumPage";
 import RestaurantPage from "../../routes/RestaurantPage/RestaurantPage";
 import RestaurantSearchPage from "../../routes/RestaurantSearchPage/RestaurantSearchPage";
 import StartGroupPage from "../../routes/StartGroupPage/StartGroupPage";
@@ -71,6 +72,11 @@ class App extends Component {
             <PrivateRoute
               path={"/group/:group_id"}
               component={GroupPage}
+            />
+
+            <PrivateRoute
+              path={"/all-out"}
+              component={OutOfYumPage}
             />
 
             <PrivateRoute
