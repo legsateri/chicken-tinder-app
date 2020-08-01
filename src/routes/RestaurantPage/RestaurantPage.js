@@ -109,10 +109,12 @@ class RestaurantPage extends Component {
                         <div key={restaurant_id}>
                             <header className="header spacing">
                                 <h1>{restaurants[i].name}</h1>
+                                <p>{restaurants[i].rating}/5 Stars</p>
                             </header>
 
-                            <div>
+                            <div className="restaurant_image">
                                 <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                                <p>{restaurants[i].formatted_address}</p>
                             </div>
 
                             <div className="restaurant_buttons" onClick={this.handleClick}>
@@ -132,10 +134,12 @@ class RestaurantPage extends Component {
                         <div key={restaurant_id}>
                             <header className="header spacing">
                                 <h1>{restaurants[i].name}</h1>
+                                <p>{restaurants[i].rating}/5 Stars</p>
                             </header>
 
-                            <div>
-                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                            <div className="restaurant_image">
+                                <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} />
+                                <p>{restaurants[i].formatted_address}</p>
                             </div>
 
                             <div className="restaurant_buttons" onClick={this.handleClick}>
@@ -155,10 +159,12 @@ class RestaurantPage extends Component {
                         <div key={restaurant_id}>
                             <header className="header spacing">
                                 <h1>{restaurants[i].name}</h1>
+                                <p>{restaurants[i].rating}/5 Stars</p>
                             </header>
 
-                            <div>
+                            <div className="restaurant_image">
                                 <img src={photoUrl} alt={`Food from ${restaurants[i].name}`} className="restaurant_image" />
+                                <p>{restaurants[i].formatted_address}</p>
                             </div>
 
                             <div className="restaurant_buttons">

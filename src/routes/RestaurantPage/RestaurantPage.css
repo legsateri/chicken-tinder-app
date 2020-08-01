@@ -4,6 +4,7 @@
         justify-content: center;
         margin-top: 20px;
         margin-bottom: 25px;
+        padding-bottom: 15px;
     }
     .restaurant_image{
         max-height: 300px;
