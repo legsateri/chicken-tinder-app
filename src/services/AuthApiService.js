@@ -1,4 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
+import TokenService from "./TokenService";
+////////////////////////////////////////////////////////////////////////////////
 import config from "../config";
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,6 +33,22 @@ const AuthApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             );
+    },
+
+    updateUser(newUser, user_id) {
+        return fetch(`${config.API_ENDPOINT}/users/${user_id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json",
+                "authorization": `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(newUser),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                };
+            });
     },
 };
 

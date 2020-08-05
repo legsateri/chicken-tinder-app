@@ -66,7 +66,7 @@ class RestaurantPage extends Component {
                     this.context.setNextPage(this.state.nextPage);
                 })
                 .then(() => {
-                    this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`);
+                    this.props.history.push(`/restaurants/${this.state.restaurants[0].place_id}`);
                 });
         };
     };
@@ -81,9 +81,9 @@ class RestaurantPage extends Component {
         for (let i = 0; i < restaurants.length; i++) {
             const photoProperty = restaurants[i].hasOwnProperty("photos");
 
-            if (restaurants[i].id === restaurant_id && photoProperty === true) {
+            if (restaurants[i].place_id === restaurant_id && photoProperty === true) {
                 photoreference = restaurants[i].photos[0].photo_reference;
-            } else if (restaurants[i].id === restaurant_id && photoProperty !== true) {
+            } else if (restaurants[i].place_id === restaurant_id && photoProperty !== true) {
                 photoreference = "none";
             };
         };
@@ -99,7 +99,7 @@ class RestaurantPage extends Component {
         };
 
         for (let i = 0; i < restaurants.length; i++) {
-            if (this.context.nextPage === undefined && restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
+            if (this.context.nextPage === undefined && restaurants[i] === restaurants[19] && restaurants[i].place_id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
                         <header className="back_header">
@@ -124,7 +124,7 @@ class RestaurantPage extends Component {
                         </div>
                     </main>
                 );
-            } else if (restaurants[i] === restaurants[19] && restaurants[i].id === restaurant_id) {
+            } else if (restaurants[i] === restaurants[19] && restaurants[i].place_id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
                         <header className="back_header">
@@ -149,7 +149,7 @@ class RestaurantPage extends Component {
                         </div>
                     </main>
                 );
-            } if (restaurants[i] !== restaurants[19] && restaurants[i].id === restaurant_id) {
+            } if (restaurants[i] !== restaurants[19] && restaurants[i].place_id === restaurant_id) {
                 currentRestaurant.push(
                     <main id="page_wrap">
                         <header className="back_header">
@@ -168,8 +168,8 @@ class RestaurantPage extends Component {
                             </div>
 
                             <div className="restaurant_buttons">
-                                <Link to={`/restaurants/${restaurants[i + 1].id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><EwButton /></Link>
-                                <Link to={`/restaurants/${restaurants[i + 1].id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><YumButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].place_id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><EwButton /></Link>
+                                <Link to={`/restaurants/${restaurants[i + 1].place_id}`} className="link_style logo_placeholder" style={{ textDecoration: "none" }}><YumButton /></Link>
                             </div>
                         </div>
                     </main>

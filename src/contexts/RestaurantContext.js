@@ -7,6 +7,7 @@ const RestaurantContext = React.createContext({
     groups: [],
     error: null,
     nextPage: "",
+    users: [],
     setError: () => { },
     clearError: () => { },
     setGroup: () => { },
@@ -17,7 +18,8 @@ const RestaurantContext = React.createContext({
     setRestaurants: () => { },
     clearRestaurants: () => { },
     setNextPage: () => { },
-    clearNextPage: () => { }
+    clearNextPage: () => { },
+    updateUser: () => { }
 });
 
 export default RestaurantContext;
@@ -88,12 +90,21 @@ export class RestaurantProvider extends Component {
         this.setState({ nextPage: "" });
     };
 
+    updateUser = newUser => {
+        this.setState({
+            users: this.state.users.map(user =>
+                (user.user_id !== newUser.user_id) ? user : newUser
+            )
+        });
+    };
+
     render() {
         const value = {
             restaurants: this.state.restaurants,
             groups: this.state.groups,
             error: this.state.error,
             nextPage: this.state.nextPage,
+            users: this.state.users,
             setError: this.setError,
             clearError: this.clearError,
             setGroup: this.setGroup,
@@ -105,6 +116,7 @@ export class RestaurantProvider extends Component {
             clearRestaurants: this.clearRestaurants,
             setNextPage: this.setNextPage,
             clearNextPage: this.clearNextPage,
+            updateUser: this.updateUser
         };
 
         return (

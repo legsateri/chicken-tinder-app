@@ -69,7 +69,7 @@ class RestaurantSearchPage extends Component {
                 this.context.setNextPage(this.state.nextPage);
             })
             .then(() => {
-                this.props.history.push(`/restaurants/${this.state.restaurants[0].id}`);
+                this.props.history.push(`/restaurants/${this.state.restaurants[0].place_id}`);
             });
     };
 
