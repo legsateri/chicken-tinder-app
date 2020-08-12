@@ -23,6 +23,8 @@ import PrivateRoute from "../../utils/PrivateRoute";
 import PublicOnlyRoute from "../../utils/PublicOnlyRoute";
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Add GET users API call. Store the returned data in context. 
+
 class App extends Component {
   static contextType = RestaurantContext;
 

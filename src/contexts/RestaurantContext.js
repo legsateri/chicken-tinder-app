@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Add setUsers context similiar to setRestaurants and setGroups.
+
 const RestaurantContext = React.createContext({
     restaurants: [],
     groups: [],

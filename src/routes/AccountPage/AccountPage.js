@@ -14,6 +14,10 @@ import config from "../../config";
 import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+/*  TODO: Update headline to include the first name of the user stored in context. Wait until after 
+    Login Form, App, and Context TODO tags are completed.
+*/
+
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },
