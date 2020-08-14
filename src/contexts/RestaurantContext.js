@@ -19,7 +19,7 @@ const RestaurantContext = React.createContext({
     clearRestaurants: () => { },
     setNextPage: () => { },
     clearNextPage: () => { },
-    setUser: () => { },
+    setUsers: () => { },
     clearUser: () => { },
     updateUser: () => { }
 });
@@ -92,7 +92,7 @@ export class RestaurantProvider extends Component {
         this.setState({ nextPage: "" });
     };
 
-    setUser = users => {
+    setUsers = users => {
         this.setState({ users });
     };
 
@@ -126,7 +126,7 @@ export class RestaurantProvider extends Component {
             clearRestaurants: this.clearRestaurants,
             setNextPage: this.setNextPage,
             clearNextPage: this.clearNextPage,
-            setUser: this.setUser,
+            setUsers: this.setUsers,
             clearUser: this.clearUser,
             updateUser: this.updateUser
         };

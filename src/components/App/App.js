@@ -22,8 +22,8 @@ import TokenService from "../../services/TokenService";
 import PrivateRoute from "../../utils/PrivateRoute";
 import PublicOnlyRoute from "../../utils/PublicOnlyRoute";
 ////////////////////////////////////////////////////////////////////////////////
-
-// TODO: Add GET users API call. Store the returned data in context. 
+import config from "../../config";
+////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
   static contextType = RestaurantContext;
@@ -31,7 +31,9 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      hasLogin: TokenService.hasAuthToken()
+      hasLogin: TokenService.hasAuthToken(),
+      users: [],
+      error: [],
     };
   };
 
@@ -39,6 +41,35 @@ class App extends Component {
     this.setState({
       hasLogin: TokenService.hasAuthToken()
     });
+  };
+
+  componentDidMount() {
+    this.context.clearError()
+
+    fetch(`${config.API_ENDPOINT}/users`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Something went wrong. Please try again later.");
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Good response from API");
+        this.setState({
+          users: data,
+          error: null
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error: error.message
+        });
+      })
+      .then(() => {
+        this.context.setUsers(this.state.users);
+        console.log(this.context.users)
+      });
   };
 
   render() {
