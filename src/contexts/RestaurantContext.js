@@ -2,8 +2,6 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Add setUsers context similiar to setRestaurants and setGroups.
-
 const RestaurantContext = React.createContext({
     restaurants: [],
     groups: [],
@@ -21,6 +19,8 @@ const RestaurantContext = React.createContext({
     clearRestaurants: () => { },
     setNextPage: () => { },
     clearNextPage: () => { },
+    setUser: () => { },
+    clearUser: () => { },
     updateUser: () => { }
 });
 
@@ -92,6 +92,14 @@ export class RestaurantProvider extends Component {
         this.setState({ nextPage: "" });
     };
 
+    setUser = users => {
+        this.setState({ users });
+    };
+
+    clearUser = () => {
+        this.setState({ users: null });
+    };
+
     updateUser = newUser => {
         this.setState({
             users: this.state.users.map(user =>
@@ -118,6 +126,8 @@ export class RestaurantProvider extends Component {
             clearRestaurants: this.clearRestaurants,
             setNextPage: this.setNextPage,
             clearNextPage: this.clearNextPage,
+            setUser: this.setUser,
+            clearUser: this.clearUser,
             updateUser: this.updateUser
         };
 
