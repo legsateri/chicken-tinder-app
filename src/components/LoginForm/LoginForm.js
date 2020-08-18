@@ -7,10 +7,6 @@ import TokenService from "../../services/TokenService";
 import "./LoginForm.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  TODO: Upon login, take user email input, search through the users stored in context, update that 
-    context to only store the current user.
-*/
-
 class LoginForm extends Component {
     static defaultProps = {
         onLoginSuccess: () => { }

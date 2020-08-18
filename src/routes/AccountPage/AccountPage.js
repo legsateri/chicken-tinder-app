@@ -74,6 +74,8 @@ class AccountPage extends Component {
                     groupsOne: groupsOneJson,
                     groupsTwo: groupsTwoJson
                 });
+                console.log(this.state.groupsOne);
+                console.log(this.state.groupsTwo);
             })
             .then(() => {
                 this.setState({
