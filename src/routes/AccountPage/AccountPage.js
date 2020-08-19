@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 ////////////////////////////////////////////////////////////////////////////////
 import RestaurantContext from "../../contexts/RestaurantContext";
 ////////////////////////////////////////////////////////////////////////////////
-import Greeting from "../../components/Greeting/Greeting";
-////////////////////////////////////////////////////////////////////////////////
 import GroupApiService from "../../services/GroupApiService";
 import TokenService from "../../services/TokenService";
 ////////////////////////////////////////////////////////////////////////////////
@@ -13,10 +11,6 @@ import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
 import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
-
-/*  TODO: Update headline to include the first name of the user stored in context. Wait until after 
-    Login Form, App, and Context TODO tags are completed.
-*/
 
 class AccountPage extends Component {
     static defaultProps = {
@@ -32,7 +26,7 @@ class AccountPage extends Component {
         this.state = {
             groupsOne: [],
             groupsTwo: [],
-            currentUser: ""
+            currentUserEmail: ""
         };
     };
 
@@ -74,13 +68,11 @@ class AccountPage extends Component {
                     groupsOne: groupsOneJson,
                     groupsTwo: groupsTwoJson
                 });
-                console.log(this.state.groupsOne);
-                console.log(this.state.groupsTwo);
             })
             .then(() => {
                 this.setState({
-                    currentUser: this.state.groupsOne[0].member_one
-                })
+                    currentUserEmail: this.state.groupsOne[0].member_one
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -90,30 +82,41 @@ class AccountPage extends Component {
     render() {
         const groupsOne = this.state.groupsOne;
         const groupsTwo = this.state.groupsTwo;
-        const currentUser = this.state.currentUser;
+        const currentUserEmail = this.state.currentUserEmail;
+        let currentUserName = "";
         const userGroups = [];
 
         for (let i = 0; i < groupsOne.length; i++) {
-            if (currentUser === groupsOne[i].member_one) {
-                userGroups.push(
-                    <li className="list_item" key={groupsOne[i].group_id}>Get food with: {groupsOne[i].member_two}
-                        <br />
-                        <Link to={`/group/${groupsOne[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsOne[i].group_id, this.context.deleteGroup)}>DELETE</button>
-                    </li>
-                );
+            for (let j = 0; j < this.context.users.length; j++) {
+                if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsOne[i].member_one) {
+                    userGroups.push(
+                        <li className="list_item" key={groupsOne[i].group_id}>Get food with: {this.context.users[j].first_name}
+                            <br />
+                            <Link to={`/group/${groupsOne[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+                            <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsOne[i].group_id, this.context.deleteGroup)}>DELETE</button>
+                        </li>
+                    );
+                };
             };
         };
 
         for (let i = 0; i < groupsTwo.length; i++) {
-            if (currentUser === groupsTwo[i].member_two) {
-                userGroups.push(
-                    <li className="list_item" key={groupsTwo[i].group_id}>Get food with: {groupsTwo[i].member_one}
-                        <br />
-                        <Link to={`/group/${groupsTwo[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                        <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsTwo[i].group_id, this.context.deleteGroup)}>DELETE</button>
-                    </li>
-                );
+            for (let j = 0; j < this.context.users.length; j++) {
+                if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsTwo[i].member_two) {
+                    userGroups.push(
+                        <li className="list_item" key={groupsTwo[i].group_id}>Get food with: {this.context.users[j].first_name}
+                            <br />
+                            <Link to={`/group/${groupsTwo[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+                            <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsTwo[i].group_id, this.context.deleteGroup)}>DELETE</button>
+                        </li>
+                    );
+                };
+            };
+        };
+
+        for (let i = 0; i < this.context.users.length; i++) {
+            if (currentUserEmail === this.context.users[i].email) {
+                currentUserName = this.context.users[i].first_name;
             };
         };
 
@@ -125,7 +128,7 @@ class AccountPage extends Component {
                     </header>
 
                     <header className="header">
-                        <Greeting />
+                        <h1>Hiya {currentUserName}!</h1>
                     </header>
 
 

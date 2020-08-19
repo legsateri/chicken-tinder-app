@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Add current user to context. state, and set function
+
 const RestaurantContext = React.createContext({
     restaurants: [],
     groups: [],
@@ -32,6 +34,7 @@ export class RestaurantProvider extends Component {
         groups: [],
         error: null,
         nextPage: "",
+        users: [],
     };
 
     setError = error => {
