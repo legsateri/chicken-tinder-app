@@ -83,7 +83,7 @@ class AccountPage extends Component {
         const groupsOne = this.state.groupsOne;
         const groupsTwo = this.state.groupsTwo;
         const currentUserEmail = this.state.currentUserEmail;
-        let currentUserName = "";
+        let currentUser = [];
         const userGroups = [];
 
         for (let i = 0; i < groupsOne.length; i++) {
@@ -116,7 +116,7 @@ class AccountPage extends Component {
 
         for (let i = 0; i < this.context.users.length; i++) {
             if (currentUserEmail === this.context.users[i].email) {
-                currentUserName = this.context.users[i].first_name;
+                currentUser = this.context.users[i];
             };
         };
 
@@ -128,7 +128,7 @@ class AccountPage extends Component {
                     </header>
 
                     <header className="header">
-                        <h1>Hiya {currentUserName}!</h1>
+                        <h1>Hiya {currentUser.first_name}!</h1>
                     </header>
 
 
