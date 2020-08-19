@@ -26,7 +26,7 @@ class AccountPage extends Component {
         this.state = {
             groupsOne: [],
             groupsTwo: [],
-            currentUserEmail: ""
+            currentUserEmail: "",
         };
     };
 
@@ -73,6 +73,13 @@ class AccountPage extends Component {
                 this.setState({
                     currentUserEmail: this.state.groupsOne[0].member_one
                 });
+            })
+            .then(() => {
+                for (let i = 0; i < this.context.users.length; i++) {
+                    if (this.state.currentUserEmail === this.context.users[i].email) {
+                        this.context.setCurrentUser(this.context.users[i])
+                    };
+                };
             })
             .catch(error => {
                 console.log(error);

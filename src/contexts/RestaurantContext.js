@@ -2,14 +2,13 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Add current user to context. state, and set function
-
 const RestaurantContext = React.createContext({
     restaurants: [],
     groups: [],
     error: null,
     nextPage: "",
     users: [],
+    currentUser: [],
     setError: () => { },
     clearError: () => { },
     setGroup: () => { },
@@ -23,7 +22,9 @@ const RestaurantContext = React.createContext({
     clearNextPage: () => { },
     setUsers: () => { },
     clearUser: () => { },
-    updateUser: () => { }
+    updateUser: () => { },
+    setCurrentUser: () => { },
+    clearCurrentUser: () => { }
 });
 
 export default RestaurantContext;
@@ -35,6 +36,7 @@ export class RestaurantProvider extends Component {
         error: null,
         nextPage: "",
         users: [],
+        currentUser: [],
     };
 
     setError = error => {
@@ -109,6 +111,14 @@ export class RestaurantProvider extends Component {
         });
     };
 
+    setCurrentUser = currentUser => {
+        this.setState({ currentUser });
+    };
+
+    clearCurrentUser = () => {
+        this.setState({ currentUser: null });
+    };
+
     render() {
         const value = {
             restaurants: this.state.restaurants,
@@ -116,6 +126,7 @@ export class RestaurantProvider extends Component {
             error: this.state.error,
             nextPage: this.state.nextPage,
             users: this.state.users,
+            currentUser: this.state.currentUser,
             setError: this.setError,
             clearError: this.clearError,
             setGroup: this.setGroup,
@@ -129,7 +140,9 @@ export class RestaurantProvider extends Component {
             clearNextPage: this.clearNextPage,
             setUsers: this.setUsers,
             clearUser: this.clearUser,
-            updateUser: this.updateUser
+            updateUser: this.updateUser,
+            setCurrentUser: this.setCurrentUser,
+            clearCurrentUser: this.clearCurrentUser
         };
 
         return (
