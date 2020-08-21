@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 const RestaurantContext = React.createContext({
     restaurants: [],
     groups: [],

@@ -10,6 +10,8 @@ import config from "../../config";
 import "./RestaurantSearchPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 class RestaurantSearchPage extends Component {
     static defaultProps = {
         match: { params: {} },

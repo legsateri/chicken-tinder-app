@@ -6,6 +6,8 @@ import AuthApiService from "../../services/AuthApiService";
 import "./SignupForm.css";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 class SignupForm extends Component {
     constructor(props) {
         super(props)

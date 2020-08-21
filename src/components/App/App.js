@@ -25,6 +25,8 @@ import PublicOnlyRoute from "../../utils/PublicOnlyRoute";
 import config from "../../config";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 class App extends Component {
   static contextType = RestaurantContext;
 

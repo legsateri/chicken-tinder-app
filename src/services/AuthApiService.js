@@ -4,6 +4,8 @@ import TokenService from "./TokenService";
 import config from "../config";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 const AuthApiService = {
     postLogin(credentials) {
         return fetch(`${config.API_ENDPOINT}/auth/login`, {

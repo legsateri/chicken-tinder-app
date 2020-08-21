@@ -7,6 +7,8 @@ import RestaurantContext from "../../contexts/RestaurantContext";
 import GroupApiService from "../../services/GroupApiService";
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Take a look at the way I'm handling API Calls
+
 class NewGroupForm extends Component {
     static defaultProps = {
         match: { params: {} },
