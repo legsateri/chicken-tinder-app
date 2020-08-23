@@ -8,12 +8,6 @@ import AuthApiService from "../../services/AuthApiService";
 import "./YumButton.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-/*  TODO: List for Yum Button
-            >   Access place based on id: https://developers.google.com/places/web-service/place-id
-*/
-
-/*  FIXME: Make this actually work. */
-
 class YumButton extends Component {
     render() {
         return (

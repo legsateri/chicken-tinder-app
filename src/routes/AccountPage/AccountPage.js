@@ -12,8 +12,6 @@ import config from "../../config";
 import "./AccountPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Take a look at the way I'm handling API Calls
-
 class AccountPage extends Component {
     static defaultProps = {
         match: { params: {} },

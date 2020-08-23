@@ -11,12 +11,6 @@ import config from "../../config";
 import "./GroupPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Take a look at the way I'm handling API Calls
-
-/*  TODO: List for Group Page
-            >   Show the last four restaurant matches (2 on mobile, 4 on desktop) for the group. 
-*/
-
 class GroupPage extends Component {
     static defaultProps = {
         match: { params: {} },

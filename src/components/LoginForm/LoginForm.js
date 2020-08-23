@@ -7,8 +7,6 @@ import TokenService from "../../services/TokenService";
 import "./LoginForm.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Take a look at the way I'm handling API Calls
-
 class LoginForm extends Component {
     static defaultProps = {
         onLoginSuccess: () => { }

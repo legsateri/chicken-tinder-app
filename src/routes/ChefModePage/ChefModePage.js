@@ -8,8 +8,6 @@ import config from "../../config";
 import "./ChefModePage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Take a look at the way I'm handling API Calls
-
 class ChefModePage extends Component {
     static defaultProps = {
         match: { params: {} },

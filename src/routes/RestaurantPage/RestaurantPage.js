@@ -13,8 +13,6 @@ import RestaurantIcon from "./RestaurantIcon.png"
 import "./RestaurantPage.css";
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Take a look at the way I'm handling API Calls
-
 class RestaurantPage extends Component {
     static contextType = RestaurantContext;
 
