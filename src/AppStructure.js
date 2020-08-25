@@ -41,7 +41,62 @@ APP COMPONENT
 
 /* API CALLS 
 
-TODO: Rethik the way API calls are spread out throughout the app
+/AUTH/LOGIN ENDPOINT
+|
+|---Post Login
+|       |---LOGIN FORM COMPONENT
+|
+
+/USERS ENDPOINT
+|
+|---Get Users
+|       |---APP COMPONENT
+|               |---Update In Context
+|---Post User
+|       |---SIGNUP FORM COMPONENT
+|---Update User
+|       |---TODO: Need to update user every time YUM button is clicked.
+|
+
+/GROUPS ENDPOINT
+|
+|---Post Group
+|       |---NEW GROUP FORM COMPONENT
+|---Delete Group
+|       |---ACCOUNT PAGE ROUTE
+|---Update Group
+|       |---TODO: Need to update every time group members match on a restaurant.
+|---Get Group By ID
+|       |---GROUP PAGE ROUTE
+|---Get Group By User
+|       |---FIXME: APP COMPONENT
+|               |---Move functions to dermine current user along with this. Update Current User In Context.
+|               |---Update Current User In Context.
+|
+
+WEATHER ENDPOINTS
+|
+|---Get Weather
+|       |---CHEF MODE PAGE ROUTE
+|
+
+EDAMAM ENDPOINTS
+|
+|---Get Recipes
+|       |---CHEF MODE PAGE ROUTE
+|
+
+GOOGLE PLACES ENDPOINTS
+|
+|---Get Restaurants
+|       |---RESTAURANT SEARCH PAGE ROUTE
+|               |---Update In Context
+|---Next Page of Results
+|       |---RESTAURANT PAGE ROUTE
+|               |---Update In Context
+|---Get Restaurant Photo
+|       |---RESTAURANT PAGE ROUTE
+|
 
 */
 
