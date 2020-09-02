@@ -34,6 +34,9 @@ class App extends Component {
       hasLogin: TokenService.hasAuthToken(),
       users: [],
       error: [],
+      groupsOne: [],
+      groupsTwo: [],
+      currentUserEmail: "",
     };
   };
 
@@ -46,28 +49,76 @@ class App extends Component {
   componentDidMount() {
     this.context.clearError()
 
-    fetch(`${config.API_ENDPOINT}/users`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Something went wrong. Please try again later.");
-        }
-        return response;
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/users`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
+        },
+      }),
+      fetch(`${config.API_ENDPOINT}/groups/user/one`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
+        },
+      }),
+      fetch(`${config.API_ENDPOINT}/groups/user/two`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `bearer ${TokenService.getAuthToken()}`
+        },
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log("Good response from API");
+    ])
+      .then(([users, groupsOne, groupsTwo]) => {
+        if (!users.ok) {
+          return users.json().then(e => Promise.reject(e));
+        };
+        if (!groupsOne.ok) {
+          return groupsOne.json().then(e => Promise.reject(e));
+        };
+        if (!groupsTwo.ok) {
+          return groupsTwo.json().then(e => Promise.reject(e));
+        };
+        return Promise.all([
+          users.json(),
+          groupsOne.json(),
+          groupsTwo.json()
+        ]);
+      })
+      .then(([usersJson, groupsOneJson, groupsTwoJson]) => {
         this.setState({
-          users: data,
+          users: usersJson,
+          groupsOne: groupsOneJson,
+          groupsTwo: groupsTwoJson,
           error: null
         });
       })
-      .catch(error => {
+      .then(() => {
         this.setState({
-          error: error.message
+          currentUserEmail: this.state.groupsOne[0].member_one
         });
       })
       .then(() => {
         this.context.setUsers(this.state.users);
+      })
+      .then(() => {
+        for (let i = 0; i < this.context.users.length; i++) {
+          if (this.state.currentUserEmail === this.context.users[i].email) {
+            this.context.setCurrentUser(this.context.users[i])
+          };
+        };
+      })
+      .then(() => {
+        this.context.setGroupsOne(this.state.groupsOne);
+      })
+      .then(() => {
+        this.context.setGroupsTwo(this.state.groupsTwo);
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
 

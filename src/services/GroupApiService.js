@@ -69,22 +69,7 @@ const GroupApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             );
-    },
-
-    getMemberOneGroups() {
-        return fetch(`${config.API_ENDPOINT}/groups/user/one`, {
-            method: "GET",
-            headers: {
-                "content-type": "application/json",
-                "authorization": `bearer ${TokenService.getAuthToken()}`
-            },
-    })
-        .then(res =>
-            (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json()
-        );
-    },
+    }
 };
 
 export default GroupApiService;

@@ -32,104 +32,104 @@ class AccountPage extends Component {
 
     static contextType = RestaurantContext;
 
-    componentDidMount() {
-        this.context.clearError()
+    // componentDidMount() {
+    //     this.context.clearError()
 
-        Promise.all([
-            fetch(`${config.API_ENDPOINT}/groups/user/one`, {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json",
-                    "authorization": `bearer ${TokenService.getAuthToken()}`
-                },
-            }),
-            fetch(`${config.API_ENDPOINT}/groups/user/two`, {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json",
-                    "authorization": `bearer ${TokenService.getAuthToken()}`
-                },
-            })
-        ])
-            .then(([groupsOne, groupsTwo]) => {
-                if (!groupsOne.ok) {
-                    return groupsOne.json().then(e => Promise.reject(e));
-                };
-                if (!groupsTwo.ok) {
-                    return groupsTwo.json().then(e => Promise.reject(e));
-                };
-                return Promise.all([
-                    groupsOne.json(),
-                    groupsTwo.json()
-                ]);
-            })
-            .then(([groupsOneJson, groupsTwoJson]) => {
-                this.setState({
-                    groupsOne: groupsOneJson,
-                    groupsTwo: groupsTwoJson
-                });
-            })
-            .then(() => {
-                this.setState({
-                    currentUserEmail: this.state.groupsOne[0].member_one
-                });
-            })
-            .then(() => {
-                for (let i = 0; i < this.context.users.length; i++) {
-                    if (this.state.currentUserEmail === this.context.users[i].email) {
-                        this.context.setCurrentUser(this.context.users[i])
-                    };
-                };
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+    //     Promise.all([
+    //         fetch(`${config.API_ENDPOINT}/groups/user/one`, {
+    //             method: "GET",
+    //             headers: {
+    //                 "content-type": "application/json",
+    //                 "authorization": `bearer ${TokenService.getAuthToken()}`
+    //             },
+    //         }),
+    //         fetch(`${config.API_ENDPOINT}/groups/user/two`, {
+    //             method: "GET",
+    //             headers: {
+    //                 "content-type": "application/json",
+    //                 "authorization": `bearer ${TokenService.getAuthToken()}`
+    //             },
+    //         })
+    //     ])
+    //         .then(([groupsOne, groupsTwo]) => {
+    //             if (!groupsOne.ok) {
+    //                 return groupsOne.json().then(e => Promise.reject(e));
+    //             };
+    //             if (!groupsTwo.ok) {
+    //                 return groupsTwo.json().then(e => Promise.reject(e));
+    //             };
+    //             return Promise.all([
+    //                 groupsOne.json(),
+    //                 groupsTwo.json()
+    //             ]);
+    //         })
+    //         .then(([groupsOneJson, groupsTwoJson]) => {
+    //             this.setState({
+    //                 groupsOne: groupsOneJson,
+    //                 groupsTwo: groupsTwoJson
+    //             });
+    //         })
+    //         .then(() => {
+    //             this.setState({
+    //                 currentUserEmail: this.state.groupsOne[0].member_one
+    //             });
+    //         })
+    //         .then(() => {
+    //             for (let i = 0; i < this.context.users.length; i++) {
+    //                 if (this.state.currentUserEmail === this.context.users[i].email) {
+    //                     this.context.setCurrentUser(this.context.users[i])
+    //                 };
+    //             };
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // };
 
     render() {
-        const groupsOne = this.state.groupsOne;
-        const groupsTwo = this.state.groupsTwo;
-        const currentUserEmail = this.state.currentUserEmail;
-        let currentUser = [];
-        const userGroups = [];
+        // const groupsOne = this.state.groupsOne;
+        // const groupsTwo = this.state.groupsTwo;
+        // const currentUserEmail = this.state.currentUserEmail;
+        // let currentUser = [];
+        // const userGroups = [];
 
-        for (let i = 0; i < groupsOne.length; i++) {
-            for (let j = 0; j < this.context.users.length; j++) {
-                if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsOne[i].member_one) {
-                    userGroups.push(
-                        <li className="list_item" key={groupsOne[i].group_id}>Get food with: {this.context.users[j].first_name}
-                            <br />
-                            <Link to={`/group/${groupsOne[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                            <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsOne[i].group_id, this.context.deleteGroup)}>DELETE</button>
-                        </li>
-                    );
-                };
-            };
-        };
+        // for (let i = 0; i < groupsOne.length; i++) {
+        //     for (let j = 0; j < this.context.users.length; j++) {
+        //         if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsOne[i].member_one) {
+        //             userGroups.push(
+        //                 <li className="list_item" key={groupsOne[i].group_id}>Get food with: {this.context.users[j].first_name}
+        //                     <br />
+        //                     <Link to={`/group/${groupsOne[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+        //                     <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsOne[i].group_id, this.context.deleteGroup)}>DELETE</button>
+        //                 </li>
+        //             );
+        //         };
+        //     };
+        // };
 
-        for (let i = 0; i < groupsTwo.length; i++) {
-            for (let j = 0; j < this.context.users.length; j++) {
-                if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsTwo[i].member_two) {
-                    userGroups.push(
-                        <li className="list_item" key={groupsTwo[i].group_id}>Get food with: {this.context.users[j].first_name}
-                            <br />
-                            <Link to={`/group/${groupsTwo[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
-                            <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsTwo[i].group_id, this.context.deleteGroup)}>DELETE</button>
-                        </li>
-                    );
-                };
-            };
-        };
+        // for (let i = 0; i < groupsTwo.length; i++) {
+        //     for (let j = 0; j < this.context.users.length; j++) {
+        //         if (currentUserEmail !== this.context.users[j].email && currentUserEmail === groupsTwo[i].member_two) {
+        //             userGroups.push(
+        //                 <li className="list_item" key={groupsTwo[i].group_id}>Get food with: {this.context.users[j].first_name}
+        //                     <br />
+        //                     <Link to={`/group/${groupsTwo[i].group_id}`}><button type="submit" className="go_button go">GO</button></Link>
+        //                     <button type="submit" className="go_button" onClick={() => GroupApiService.deleteGroup(groupsTwo[i].group_id, this.context.deleteGroup)}>DELETE</button>
+        //                 </li>
+        //             );
+        //         };
+        //     };
+        // };
 
-        for (let i = 0; i < this.context.users.length; i++) {
-            if (currentUserEmail === this.context.users[i].email) {
-                currentUser = this.context.users[i];
-            };
-        };
+        // for (let i = 0; i < this.context.users.length; i++) {
+        //     if (currentUserEmail === this.context.users[i].email) {
+        //         currentUser = this.context.users[i];
+        //     };
+        // };
 
         return (
             <>
-                <main id="page_wrap">
+                {/* <main id="page_wrap">
                     <header className="back_header">
                         <p className="back_p"><span className="back_p back" onClick={this.props.history.goBack}>Back</span> / Account</p>
                     </header>
@@ -153,7 +153,7 @@ class AccountPage extends Component {
                         <h2 className="subhead">Enter Chef Mode</h2>
                         <Link to="/chef-mode"><button type="submit" className="go_button">GO</button></Link>
                     </div>
-                </main>
+                </main> */}
             </>
         );
     };

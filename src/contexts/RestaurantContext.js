@@ -4,27 +4,33 @@ import React, { Component } from "react";
 
 const RestaurantContext = React.createContext({
     restaurants: [],
-    groups: [],
-    error: null,
     nextPage: "",
+    groups: [],
+    groupsOne: [],
+    groupsTwo: [],
     users: [],
     currentUser: [],
-    setError: () => { },
-    clearError: () => { },
+    error: null,
+    setRestaurants: () => { },
+    clearRestaurants: () => { },
+    setNextPage: () => { },
+    clearNextPage: () => { },
     setGroup: () => { },
     clearGroup: () => { },
     addGroup: () => { },
     deleteGroup: () => { },
     updateGroup: () => { },
-    setRestaurants: () => { },
-    clearRestaurants: () => { },
-    setNextPage: () => { },
-    clearNextPage: () => { },
+    setGroupsOne: () => { },
+    clearGroupsOne: () => { },
+    setGroupsTwo: () => { },
+    clearGroupsTwo: () => { },
     setUsers: () => { },
     clearUser: () => { },
     updateUser: () => { },
     setCurrentUser: () => { },
-    clearCurrentUser: () => { }
+    clearCurrentUser: () => { },
+    setError: () => { },
+    clearError: () => { }
 });
 
 export default RestaurantContext;
@@ -32,20 +38,29 @@ export default RestaurantContext;
 export class RestaurantProvider extends Component {
     state = {
         restaurants: [],
-        groups: [],
-        error: null,
         nextPage: "",
+        groups: [],
+        groupsOne: [],
+        groupsTwo: [],
         users: [],
         currentUser: [],
+        error: null,
     };
 
-    setError = error => {
-        console.error(error);
-        this.setState({ error });
+    setRestaurants = restaurants => {
+        this.setState({ restaurants });
     };
 
-    clearError = () => {
-        this.setState({ error: null });
+    clearRestaurants = () => {
+        this.setState({ restaurants: [] });
+    };
+
+    setNextPage = nextPage => {
+        this.setState({ nextPage });
+    };
+
+    clearNextPage = () => {
+        this.setState({ nextPage: "" });
     };
 
     setGroup = groups => {
@@ -79,20 +94,22 @@ export class RestaurantProvider extends Component {
         });
     };
 
-    setRestaurants = restaurants => {
-        this.setState({ restaurants });
+    setGroupsOne = groupsOne => {
+        this.setState({ groupsOne });
+        console.log(this.state.groupsOne);
     };
 
-    clearRestaurants = () => {
-        this.setState({ restaurants: [] });
+    clearGroupsOne = () => {
+        this.setState({ groupsOne: null });
     };
 
-    setNextPage = nextPage => {
-        this.setState({ nextPage });
+    setGroupsTwo = groupsTwo => {
+        this.setState({ groupsTwo });
+        console.log(this.state.groupsTwo);
     };
 
-    clearNextPage = () => {
-        this.setState({ nextPage: "" });
+    clearGroupsTwo = () => {
+        this.setState({ groupsTwo: null });
     };
 
     setUsers = users => {
@@ -121,30 +138,45 @@ export class RestaurantProvider extends Component {
         this.setState({ currentUser: null });
     };
 
+    setError = error => {
+        console.error(error);
+        this.setState({ error });
+    };
+
+    clearError = () => {
+        this.setState({ error: null });
+    };
+
     render() {
         const value = {
             restaurants: this.state.restaurants,
-            groups: this.state.groups,
-            error: this.state.error,
             nextPage: this.state.nextPage,
+            groups: this.state.groups,
+            groupsOne: [],
+            groupsTwo: [],
             users: this.state.users,
             currentUser: this.state.currentUser,
-            setError: this.setError,
-            clearError: this.clearError,
+            error: this.state.error,
+            setRestaurants: this.setRestaurants,
+            clearRestaurants: this.clearRestaurants,
+            setNextPage: this.setNextPage,
+            clearNextPage: this.clearNextPage,
             setGroup: this.setGroup,
             clearGroup: this.clearGroup,
             addGroup: this.addGroup,
             deleteGroup: this.deleteGroup,
             updateGroup: this.updateGroup,
-            setRestaurants: this.setRestaurants,
-            clearRestaurants: this.clearRestaurants,
-            setNextPage: this.setNextPage,
-            clearNextPage: this.clearNextPage,
+            setGroupsOne: this.setGroupsOne,
+            clearGroupsOne: this.clearGroupsOne,
+            setGroupsTwo: this.setGroupsTwo,
+            clearGroupsTwo: this.clearGroupsTwo,
             setUsers: this.setUsers,
             clearUser: this.clearUser,
             updateUser: this.updateUser,
             setCurrentUser: this.setCurrentUser,
-            clearCurrentUser: this.clearCurrentUser
+            clearCurrentUser: this.clearCurrentUser,
+            setError: this.setError,
+            clearError: this.clearError,
         };
 
         return (
