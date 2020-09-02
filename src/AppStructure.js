@@ -69,9 +69,7 @@ APP COMPONENT
 |---Get Group By ID
 |       |---GROUP PAGE ROUTE
 |---Get Group By User
-|       |---FIXME: APP COMPONENT
-|               |---Move functions to dermine current user along with this. Update Current User In Context.
-|               |---Update Current User In Context.
+|       |---APP COMPONENT
 |
 
 WEATHER ENDPOINTS

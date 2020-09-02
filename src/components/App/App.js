@@ -33,10 +33,10 @@ class App extends Component {
     this.state = {
       hasLogin: TokenService.hasAuthToken(),
       users: [],
-      error: [],
       groupsOne: [],
       groupsTwo: [],
       currentUserEmail: "",
+      error: [],
     };
   };
 
@@ -105,17 +105,17 @@ class App extends Component {
         this.context.setUsers(this.state.users);
       })
       .then(() => {
+        this.context.setGroupsOne(this.state.groupsOne);
+      })
+      .then(() => {
+        this.context.setGroupsTwo(this.state.groupsTwo);
+      })
+      .then(() => {
         for (let i = 0; i < this.context.users.length; i++) {
           if (this.state.currentUserEmail === this.context.users[i].email) {
             this.context.setCurrentUser(this.context.users[i])
           };
         };
-      })
-      .then(() => {
-        this.context.setGroupsOne(this.state.groupsOne);
-      })
-      .then(() => {
-        this.context.setGroupsTwo(this.state.groupsTwo);
       })
       .catch(error => {
         console.log(error);

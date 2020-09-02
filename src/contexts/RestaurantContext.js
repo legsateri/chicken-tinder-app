@@ -131,7 +131,7 @@ export class RestaurantProvider extends Component {
 
     setCurrentUser = currentUser => {
         this.setState({ currentUser });
-        console.log(this.state.currentUser)
+        console.log(this.state.currentUser);
     };
 
     clearCurrentUser = () => {
@@ -152,8 +152,8 @@ export class RestaurantProvider extends Component {
             restaurants: this.state.restaurants,
             nextPage: this.state.nextPage,
             groups: this.state.groups,
-            groupsOne: [],
-            groupsTwo: [],
+            groupsOne: this.state.groupsOne,
+            groupsTwo: this.state.groupsTwo,
             users: this.state.users,
             currentUser: this.state.currentUser,
             error: this.state.error,
