@@ -86,6 +86,8 @@ EDAMAM ENDPOINTS
 
 GOOGLE PLACES ENDPOINTS
 |
+FIXME: Move these API calls to a service. Remove unused functions/state from Restaurant Context file.
+|
 |---Get Restaurants
 |       |---RESTAURANT SEARCH PAGE ROUTE
 |               |---Update In Context
